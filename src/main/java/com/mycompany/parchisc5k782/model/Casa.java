@@ -4,6 +4,9 @@
  */
 package com.mycompany.parchisc5k782.model;
 
+import java.awt.Component;
+import java.awt.Graphics;
+
 /**
  *
  * @author lab01
@@ -38,4 +41,13 @@ public class Casa {
 
     }
 
+    public void dibujar(Component component, Graphics g){
+       if (fichas != null){
+           for (int indice = 0;indice<fichas.length;indice ++){
+               if(fichas[indice] != null){
+                   fichas[indice].dibujar(component, g);
+               }
+           }
+       }
+   }
 }

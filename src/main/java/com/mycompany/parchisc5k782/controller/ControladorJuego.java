@@ -4,6 +4,8 @@
  */
 package com.mycompany.parchisc5k782.controller;
 
+import com.mycompany.parchisc5k782.model.AreaJuego;
+import com.mycompany.parchisc5k782.model.Dado;
 import com.mycompany.parchisc5k782.model.Ficha;
 import com.mycompany.parchisc5k782.model.Posicion;
 import com.mycompany.parchisc5k782.view.GUIJuego;
@@ -29,13 +31,18 @@ public class ControladorJuego implements ActionListener, MouseListener {
     private PanelControl panelControl;
     private GUIPrincipal guiPrincipal;
     private Ficha ficha;
+    private AreaJuego areaJuego;
+    private Dado dado;
 
     public ControladorJuego(GUIPrincipal guiPrincipal) {
         this.guiPrincipal = guiPrincipal;
         guiJuego = new GUIJuego(this);
         panelJuego = guiJuego.getPanelJuego();
+        areaJuego = new AreaJuego();
         panelControl = guiJuego.getPanelControl();
+        dado = new Dado();
         guiJuego.setVisible(true);
+        
         ficha = new Ficha(new Posicion(100, 100), new ImageIcon("./src/main/resources/img/pieceblue.png"), "Amarillo");
         //453,468
     }
@@ -43,6 +50,7 @@ public class ControladorJuego implements ActionListener, MouseListener {
     public void dibujar(Component c, Graphics g) {
 
         ficha.dibujar(c, g);
+        areaJuego.dibujar(c, g);
 
     }
 
@@ -52,7 +60,7 @@ public class ControladorJuego implements ActionListener, MouseListener {
         switch (e.getActionCommand()) {
 
             case "Dado":
-                System.out.println("Presiono el dado");
+                System.out.println("Resultado de dado:" + dado.lanzar());
                 break;
 
             case "AtrasPanelControl":
