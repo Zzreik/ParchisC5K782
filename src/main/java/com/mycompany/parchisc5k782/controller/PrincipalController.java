@@ -7,6 +7,7 @@ package com.mycompany.parchisc5k782.controller;
 import com.mycompany.parchisc5k782.view.GUICreditos;
 import com.mycompany.parchisc5k782.view.GUIHistoriaJuego;
 import com.mycompany.parchisc5k782.view.GUIInstrucciones;
+import com.mycompany.parchisc5k782.view.GUIJugador;
 import com.mycompany.parchisc5k782.view.GUIPrincipal;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -22,6 +23,7 @@ public class PrincipalController implements ActionListener {
     private GUIInstrucciones guiInstrucciones;
     private GUIHistoriaJuego guiHistoriaJuego;
     private ControladorJuego controladorJuego;
+    private GUIJugador guiJugador;
 
     public PrincipalController() {
         guiPrincipal = new GUIPrincipal(this);
@@ -29,6 +31,8 @@ public class PrincipalController implements ActionListener {
         guiCreditos = new GUICreditos(this);
         guiInstrucciones = new GUIInstrucciones(this);
         guiHistoriaJuego = new GUIHistoriaJuego(this);
+        guiJugador = new GUIJugador(this);
+        
     }
 
     @Override
@@ -36,9 +40,16 @@ public class PrincipalController implements ActionListener {
         switch (e.getActionCommand()) {
 
             case "Jugar":
-                guiPrincipal.setVisible(true);
-                controladorJuego = new ControladorJuego(guiPrincipal);
+                guiPrincipal.setVisible(false);
+                guiJugador.setVisible(true);
+                
                 break;
+                
+                
+            case "Continuar":
+               controladorJuego = new ControladorJuego(guiPrincipal);
+                break;
+                
 
             case "Instrucciones":
                 guiPrincipal.setVisible(false);
