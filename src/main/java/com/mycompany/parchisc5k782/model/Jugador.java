@@ -14,4 +14,26 @@ public class Jugador {
     private String color;
     private int puntos;
     
+    public Jugador(String nombre, String color) {
+        this.nombre = nombre;
+        this.color = color;
+        puntos = 5;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public String getColor() {
+        return color;
+    }
+
+    public void setColor(String color) {
+        this.color = color;
+    }
+    
 }

@@ -1,4 +1,4 @@
-/*
+ /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
@@ -63,15 +63,17 @@ public class GUIJugador extends javax.swing.JFrame {
         getContentPane().add(cbColor, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 190, -1, -1));
 
         txtJugador1.setColumns(20);
+        txtJugador1.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         txtJugador1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtJugador1ActionPerformed(evt);
             }
         });
-        getContentPane().add(txtJugador1, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 310, -1, 40));
+        getContentPane().add(txtJugador1, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 310, 310, 40));
 
         txtJugador2.setColumns(20);
-        getContentPane().add(txtJugador2, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 422, -1, 50));
+        txtJugador2.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        getContentPane().add(txtJugador2, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 422, 310, 50));
 
         jlFondoPersonaje.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/fondoPersonaje.png"))); // NOI18N
         getContentPane().add(jlFondoPersonaje, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -30, 800, 670));
