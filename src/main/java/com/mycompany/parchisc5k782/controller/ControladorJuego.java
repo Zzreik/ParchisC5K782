@@ -40,6 +40,8 @@ public class ControladorJuego implements ActionListener, MouseListener {
         panelJuego = guiJuego.getPanelJuego();
         areaJuego = new AreaJuego(colorJugador1,nombreJugador1,nombreJugador2);
         panelControl = guiJuego.getPanelControl();
+        panelControl.setJlNombreJugador1(nombreJugador1);
+        panelControl.setJlNombreJugador2(nombreJugador2);
         dado = new Dado();
         guiJuego.setVisible(true);
         
@@ -75,8 +77,17 @@ public class ControladorJuego implements ActionListener, MouseListener {
     @Override
     public void mouseClicked(MouseEvent e) {
         System.out.println("X " + e.getX() + " Y " + e.getY());
-        ficha.getPosicion().setX(e.getX());
-        ficha.getPosicion().setY(e.getY());
+//        ficha.getPosicion().setX(e.getX());
+//        ficha.getPosicion().setY(e.getY());
+        if(areaJuego.isContains(e.getX(), e.getY())){
+        
+            System.out.println("Si hay una Ficha");
+            System.out.println("Indice de la ficha: " + areaJuego.getIndexFicha(e.getX(), e.getY()));
+        } else {
+        
+            System.out.println("No hay una Ficha");
+        
+        }
         panelJuego.repaint();
     }
 

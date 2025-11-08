@@ -29,65 +29,65 @@ public class Tablero {
 
         for (int indice = 0; indice < 4; indice++) {
             tablero[indice] = new Celda(new Posicion(x, y));
-            tablero[indice].setFicha(new Ficha(new Posicion(x, y), new ImageIcon("./src/main/resources/img/pieceblack.png"), "negra"));
+            //tablero[indice].setFicha(new Ficha(new Posicion(x, y), new ImageIcon("./src/main/resources/img/pieceblack.png"), "negra"));
             y -= 30;
         }
         tablero[4] = new CeldaEspecialColor(new Posicion(x, y), "salida Amarillo", "Amarillo");
-        tablero[4].setFicha(new Ficha(new Posicion(x, y), new ImageIcon("./src/main/resources/img/pieceblue.png"), "negra"));
+        //tablero[4].setFicha(new Ficha(new Posicion(x, y), new ImageIcon("./src/main/resources/img/pieceblue.png"), "negra"));
         y -= 30;
         for (int indice = 5; indice < 8; indice++) {
             tablero[indice] = new Celda(new Posicion(x, y));
-            tablero[indice].setFicha(new Ficha(new Posicion(x, y), new ImageIcon("./src/main/resources/img/pieceblack.png"), "negra"));
+            //tablero[indice].setFicha(new Ficha(new Posicion(x, y), new ImageIcon("./src/main/resources/img/pieceblack.png"), "negra"));
             y -= 30;
         }
         x = 383;
         y = 349;
         for (int indice = 8; indice < 11; indice++) {
             tablero[indice] = new Celda(new Posicion(x, y));
-            tablero[indice].setFicha(new Ficha(new Posicion(x, y), new ImageIcon("./src/main/resources/img/pieceblack.png"), "negra"));
+            //tablero[indice].setFicha(new Ficha(new Posicion(x, y), new ImageIcon("./src/main/resources/img/pieceblack.png"), "negra"));
             x += 30;
         }
         tablero[11] = new CeldaEspecial(new Posicion(x, y), "zona segura");
-        tablero[11].setFicha(new Ficha(new Posicion(x, y), new ImageIcon("./src/main/resources/img/pieceblue.png"), "negra"));
+        //tablero[11].setFicha(new Ficha(new Posicion(x, y), new ImageIcon("./src/main/resources/img/pieceblue.png"), "negra"));
         x += 30;
         for (int indice = 12; indice < 16; indice++) {
             tablero[indice] = new Celda(new Posicion(x, y));
-            tablero[indice].setFicha(new Ficha(new Posicion(x, y), new ImageIcon("./src/main/resources/img/pieceblack.png"), "negra"));
+            //tablero[indice].setFicha(new Ficha(new Posicion(x, y), new ImageIcon("./src/main/resources/img/pieceblack.png"), "negra"));
             x += 30;
         } 
         x = 592;
         y = 289;
         tablero[16] = new CeldaEspecialColor(new Posicion(x, y), "salida Amarillo", "Amarillo");
-        tablero[16].setFicha(new Ficha(new Posicion(x, y), new ImageIcon("./src/main/resources/img/pieceblue.png"), "negra"));
+        //tablero[16].setFicha(new Ficha(new Posicion(x, y), new ImageIcon("./src/main/resources/img/pieceblue.png"), "negra"));
         
         x = 590;
         y = 245;
         for (int indice = 17; indice < 21; indice++) {
             tablero[indice] = new Celda(new Posicion(x, y));
-            tablero[indice].setFicha(new Ficha(new Posicion(x, y), new ImageIcon("./src/main/resources/img/pieceblack.png"), "negra"));
+            //tablero[indice].setFicha(new Ficha(new Posicion(x, y), new ImageIcon("./src/main/resources/img/pieceblack.png"), "negra"));
             x -= 30;
         } 
         tablero[21] = new CeldaEspecialColor(new Posicion(x, y), "salida Amarillo", "Amarillo");
-        tablero[21].setFicha(new Ficha(new Posicion(x, y), new ImageIcon("./src/main/resources/img/pieceblue.png"), "negra"));
+        //tablero[21].setFicha(new Ficha(new Posicion(x, y), new ImageIcon("./src/main/resources/img/pieceblue.png"), "negra"));
         x -= 30;
         for (int indice = 22; indice < 25; indice++) {
             tablero[indice] = new Celda(new Posicion(x, y));
-            tablero[indice].setFicha(new Ficha(new Posicion(x, y), new ImageIcon("./src/main/resources/img/pieceblack.png"), "negra"));
+            //tablero[indice].setFicha(new Ficha(new Posicion(x, y), new ImageIcon("./src/main/resources/img/pieceblack.png"), "negra"));
             x -= 30;
         } 
         x = 351;
         y = 213;
         for (int indice = 25; indice < 28; indice++) {
             tablero[indice] = new Celda(new Posicion(x, y));
-            tablero[indice].setFicha(new Ficha(new Posicion(x, y), new ImageIcon("./src/main/resources/img/pieceblack.png"), "negra"));
+            //tablero[indice].setFicha(new Ficha(new Posicion(x, y), new ImageIcon("./src/main/resources/img/pieceblack.png"), "negra"));
             y -= 30;
         } 
         tablero[28] = new CeldaEspecialColor(new Posicion(x, y), "salida Amarillo", "Amarillo");
-        tablero[28].setFicha(new Ficha(new Posicion(x, y), new ImageIcon("./src/main/resources/img/pieceblue.png"), "negra"));
+        //tablero[28].setFicha(new Ficha(new Posicion(x, y), new ImageIcon("./src/main/resources/img/pieceblue.png"), "negra"));
         y -= 30;
         for (int indice = 29; indice < 33; indice++) {
             tablero[indice] = new Celda(new Posicion(x, y));
-            tablero[indice].setFicha(new Ficha(new Posicion(x, y), new ImageIcon("./src/main/resources/img/pieceblack.png"), "negra"));
+            //tablero[indice].setFicha(new Ficha(new Posicion(x, y), new ImageIcon("./src/main/resources/img/pieceblack.png"), "negra"));
             y -= 30;
         } 
         
@@ -96,21 +96,21 @@ public class Tablero {
         x = 295;
         y = 3;
         tablero[33] = new CeldaEspecialColor(new Posicion(x, y), "salida Amarillo", "Amarillo");
-        tablero[33].setFicha(new Ficha(new Posicion(x, y), new ImageIcon("./src/main/resources/img/pieceblue.png"), "negra"));
+        //tablero[33].setFicha(new Ficha(new Posicion(x, y), new ImageIcon("./src/main/resources/img/pieceblue.png"), "negra"));
         
         x = 253;
         y = 3;
         for (int indice = 34; indice < 38; indice++) {
             tablero[indice] = new Celda(new Posicion(x, y));
-            tablero[indice].setFicha(new Ficha(new Posicion(x, y), new ImageIcon("./src/main/resources/img/pieceblack.png"), "negra"));
+            //tablero[indice].setFicha(new Ficha(new Posicion(x, y), new ImageIcon("./src/main/resources/img/pieceblack.png"), "negra"));
             y += 30;
         } 
         tablero[38] = new CeldaEspecialColor(new Posicion(x, y), "salida Amarillo", "Amarillo");
-        tablero[38].setFicha(new Ficha(new Posicion(x, y), new ImageIcon("./src/main/resources/img/pieceblue.png"), "negra"));
+        //tablero[38].setFicha(new Ficha(new Posicion(x, y), new ImageIcon("./src/main/resources/img/pieceblue.png"), "negra"));
         y += 30;
         for (int indice = 39; indice < 42; indice++) {
             tablero[indice] = new Celda(new Posicion(x, y));
-            tablero[indice].setFicha(new Ficha(new Posicion(x, y), new ImageIcon("./src/main/resources/img/pieceblack.png"), "negra"));
+            //tablero[indice].setFicha(new Ficha(new Posicion(x, y), new ImageIcon("./src/main/resources/img/pieceblack.png"), "negra"));
             y += 30;
         } 
         
@@ -120,16 +120,16 @@ public class Tablero {
         y = 245;
         for (int indice = 42; indice < 44; indice++) {
             tablero[indice] = new Celda(new Posicion(x, y));
-            tablero[indice].setFicha(new Ficha(new Posicion(x, y), new ImageIcon("./src/main/resources/img/pieceblack.png"), "negra"));
+            //tablero[indice].setFicha(new Ficha(new Posicion(x, y), new ImageIcon("./src/main/resources/img/pieceblack.png"), "negra"));
             x -= 30;
         } 
         tablero[44] = new CeldaEspecial(new Posicion(x, y), "zona segura");
-        tablero[44].setFicha(new Ficha(new Posicion(x, y), new ImageIcon("./src/main/resources/img/pieceblue.png"), "negra"));
+        //tablero[44].setFicha(new Ficha(new Posicion(x, y), new ImageIcon("./src/main/resources/img/pieceblue.png"), "negra"));
         x -= 30;
 
         for (int indice = 45; indice < 50; indice++) {
             tablero[indice] = new Celda(new Posicion(x, y));
-            tablero[indice].setFicha(new Ficha(new Posicion(x, y), new ImageIcon("./src/main/resources/img/pieceblack.png"), "negra"));
+            //tablero[indice].setFicha(new Ficha(new Posicion(x, y), new ImageIcon("./src/main/resources/img/pieceblack.png"), "negra"));
             x -= 30;
         } 
         
@@ -138,21 +138,21 @@ public class Tablero {
         x = 1;
         y = 289;
         tablero[50] = new CeldaEspecialColor(new Posicion(x, y), "salida Amarillo", "Amarillo");
-        tablero[50].setFicha(new Ficha(new Posicion(x, y), new ImageIcon("./src/main/resources/img/pieceblue.png"), "negra"));
+        //tablero[50].setFicha(new Ficha(new Posicion(x, y), new ImageIcon("./src/main/resources/img/pieceblue.png"), "negra"));
         
         x = 1;
         y = 347;
         for (int indice = 51; indice < 55; indice++) {
             tablero[indice] = new Celda(new Posicion(x, y));
-            tablero[indice].setFicha(new Ficha(new Posicion(x, y), new ImageIcon("./src/main/resources/img/pieceblack.png"), "negra"));
+            //tablero[indice].setFicha(new Ficha(new Posicion(x, y), new ImageIcon("./src/main/resources/img/pieceblack.png"), "negra"));
             x += 30;
         } 
         tablero[55] = new CeldaEspecialColor(new Posicion(x, y), "salida Amarillo", "Amarillo");
-        tablero[55].setFicha(new Ficha(new Posicion(x, y), new ImageIcon("./src/main/resources/img/pieceblue.png"), "negra"));
+        //tablero[55].setFicha(new Ficha(new Posicion(x, y), new ImageIcon("./src/main/resources/img/pieceblue.png"), "negra"));
         x += 30;
         for (int indice = 56; indice < 59; indice++) {
             tablero[indice] = new Celda(new Posicion(x, y));
-            tablero[indice].setFicha(new Ficha(new Posicion(x, y), new ImageIcon("./src/main/resources/img/pieceblack.png"), "negra"));
+            //tablero[indice].setFicha(new Ficha(new Posicion(x, y), new ImageIcon("./src/main/resources/img/pieceblack.png"), "negra"));
             x += 30;
         } 
         
@@ -161,22 +161,22 @@ public class Tablero {
         y = 380;
         for (int indice = 59; indice < 62; indice++) {
             tablero[indice] = new Celda(new Posicion(x, y));
-            tablero[indice].setFicha(new Ficha(new Posicion(x, y), new ImageIcon("./src/main/resources/img/pieceblack.png"), "negra"));
+            //tablero[indice].setFicha(new Ficha(new Posicion(x, y), new ImageIcon("./src/main/resources/img/pieceblack.png"), "negra"));
             y += 30;
         } 
         tablero[62] = new CeldaEspecialColor(new Posicion(x, y), "salida Amarillo", "Amarillo");
-        tablero[62].setFicha(new Ficha(new Posicion(x, y), new ImageIcon("./src/main/resources/img/pieceblue.png"), "negra"));
+        //tablero[62].setFicha(new Ficha(new Posicion(x, y), new ImageIcon("./src/main/resources/img/pieceblue.png"), "negra"));
         y += 30;
         for (int indice = 63; indice < 67; indice++) {
             tablero[indice] = new Celda(new Posicion(x, y));
-            tablero[indice].setFicha(new Ficha(new Posicion(x, y), new ImageIcon("./src/main/resources/img/pieceblack.png"), "negra"));
+            //tablero[indice].setFicha(new Ficha(new Posicion(x, y), new ImageIcon("./src/main/resources/img/pieceblack.png"), "negra"));
             y += 30;
         } 
         
         x = 297;
         y = 592;
         tablero[67] = new CeldaEspecialColor(new Posicion(x, y), "salida Amarillo", "Amarillo");
-        tablero[67].setFicha(new Ficha(new Posicion(x, y), new ImageIcon("./src/main/resources/img/pieceblue.png"), "negra"));  
+        //tablero[67].setFicha(new Ficha(new Posicion(x, y), new ImageIcon("./src/main/resources/img/pieceblue.png"), "negra"));  
         
     }
 
@@ -221,5 +221,37 @@ public class Tablero {
                 }    
             }  
         }
+    }
+    
+    public boolean isContains(int x, int y){
+    
+        for (int index=0;index<casaJugador1.getCantidadFichas();index++){
+    
+            if(casaJugador1.getFicha(index)!=null){
+             if(casaJugador1.getFicha(index).isContains(x,y)){
+                 return true;
+             }
+            
+            
+            }
+            
+         }
+        return false;
+    }
+    
+    public int getIndexFicha(int x, int y){
+    
+    for (int index=0;index<casaJugador1.getCantidadFichas();index++){
+    
+            if(casaJugador1.getFicha(index)!=null){
+             if(casaJugador1.getFicha(index).isContains(x,y)){
+                 return index;
+             }
+            
+            
+            }
+            
+         }
+        return -1;
     }
 }

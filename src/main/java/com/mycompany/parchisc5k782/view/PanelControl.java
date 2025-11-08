@@ -5,6 +5,7 @@
 package com.mycompany.parchisc5k782.view;
 
 import com.mycompany.parchisc5k782.controller.ControladorJuego;
+import javax.swing.JLabel;
 
 /**
  *
@@ -12,13 +13,16 @@ import com.mycompany.parchisc5k782.controller.ControladorJuego;
  */
 public class PanelControl extends javax.swing.JPanel {
 
+    GUIJugador guiJugador;
+    
     /**
      * Creates new form PanelControl
      */
     public PanelControl() {
         initComponents();
+        this.guiJugador=guiJugador;
     }
-
+    
     
     public void escuchar(ControladorJuego controlador){
         btnAtras.addActionListener(controlador);
@@ -26,6 +30,13 @@ public class PanelControl extends javax.swing.JPanel {
     
     }
     
+     public void setJlNombreJugador1(String jlNombreJugador1) {
+        this.jlNombreJugador1.setText(jlNombreJugador1);
+    }
+
+    public void setJlNombreJugador2(String jlNombreJugador2) {
+        this.jlNombreJugador2.setText(jlNombreJugador2);
+    }
     
     /**
      * This method is called from within the constructor to initialize the form.
@@ -38,6 +49,8 @@ public class PanelControl extends javax.swing.JPanel {
 
         btnDado = new javax.swing.JButton();
         btnAtras = new javax.swing.JButton();
+        jlNombreJugador1 = new javax.swing.JLabel();
+        jlNombreJugador2 = new javax.swing.JLabel();
         jlFondo = new javax.swing.JLabel();
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -51,6 +64,14 @@ public class PanelControl extends javax.swing.JPanel {
         btnAtras.setContentAreaFilled(false);
         add(btnAtras, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 620, -1, -1));
 
+        jlNombreJugador1.setFont(new java.awt.Font("Segoe UI Black", 0, 24)); // NOI18N
+        jlNombreJugador1.setText("Jugador1");
+        add(jlNombreJugador1, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 280, -1, -1));
+
+        jlNombreJugador2.setFont(new java.awt.Font("Segoe UI Black", 0, 24)); // NOI18N
+        jlNombreJugador2.setText("Jugador2");
+        add(jlNombreJugador2, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 460, -1, -1));
+
         jlFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/TableroFondo.png"))); // NOI18N
         add(jlFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
@@ -60,5 +81,7 @@ public class PanelControl extends javax.swing.JPanel {
     private javax.swing.JButton btnAtras;
     private javax.swing.JButton btnDado;
     private javax.swing.JLabel jlFondo;
+    private javax.swing.JLabel jlNombreJugador1;
+    private javax.swing.JLabel jlNombreJugador2;
     // End of variables declaration//GEN-END:variables
 }

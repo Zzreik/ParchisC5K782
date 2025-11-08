@@ -50,4 +50,10 @@ public class Casa {
            }
        }
    }
+    
+    public int getCantidadFichas(){
+    
+        return fichas.length;
+    
+    }
 }

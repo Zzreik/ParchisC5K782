@@ -23,6 +23,18 @@ public class AreaJuego {
         tablero.crearCasas(colorJugador1);
     }
     
+    public int getIndexFicha(int x, int y){
+    
+        return tablero.getIndexFicha(x, y);
+    
+    }
+    
+    public boolean isContains(int x, int y){
+    
+        return tablero.isContains(x, y);
+    
+    }
+    
     public void crearJugadores(String colorJugador1, String nombreJugador1,  String nombreJugador2){
     
         switch(colorJugador1){
