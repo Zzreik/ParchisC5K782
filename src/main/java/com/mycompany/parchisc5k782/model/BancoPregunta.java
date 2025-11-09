@@ -19,12 +19,21 @@ public class BancoPregunta {
     }
     
     public void crearPreguntas(){
-        agregar(new Pregunta("Bruselas es la capital de Belgica?",0));
-        agregar(new Pregunta("Carlos se va a quedar en ITM?",0));
-        agregar(new Pregunta("El tomate es una fruta?",0));
-        agregar(new Pregunta("Maria siempre llega temprano?",1));
-        agregar(new Pregunta("Es posible acceder a un atributo" +
-"               +con visibilidad privada directamente desde otra clase?",1));
+        agregar(new Pregunta("¿Java es un lenguaje orientado a objetos?",0));
+        agregar(new Pregunta("¿Se puede ejecutar código Java sin compilarlo primero?",1));
+        agregar(new Pregunta("¿Se puede usar System.out.println para leer datos del usuario?",1));
+        agregar(new Pregunta("¿Java permite herencia múltiple directa entre clases?",1));
+        agregar(new Pregunta("¿El método main es obligatorio para ejecutar un programa Java?",0));
+        agregar(new Pregunta("¿La extensión de archivo para código fuente Java es .java?",0));
+        agregar(new Pregunta("¿Se puede usar super para acceder a miembros de una subclase?",1));
+        agregar(new Pregunta("¿Se puede usar break dentro de un bucle for?",0));
+        agregar(new Pregunta("¿El paquete java.util incluye clases para trabajar con listas?",0));
+        agregar(new Pregunta("¿Java permite definir múltiples métodos main en una misma clase?",1));
+        agregar(new Pregunta("¿Se puede usar this para referirse al objeto actual?",0));
+        agregar(new Pregunta("¿Se puede crear una instancia de una clase abstracta?",1));
+        agregar(new Pregunta("¿El ciclo while se ejecuta al menos una vez siempre?",1));
+        agregar(new Pregunta("¿Java permite el uso de anotaciones como @Override?",0));
+        agregar(new Pregunta("¿El operador == compara el contenido de objetos?",1));
     }
     
     public void agregar(Pregunta pregunta){

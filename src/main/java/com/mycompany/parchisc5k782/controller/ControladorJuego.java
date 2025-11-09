@@ -62,7 +62,14 @@ public class ControladorJuego implements ActionListener, MouseListener {
         switch (e.getActionCommand()) {
 
             case "Dado":
-                System.out.println("Resultado de dado:" + dado.lanzar());
+                int resultado = dado.lanzar();
+                System.out.println("Resultado de dado:" + resultado);
+                String rutaImagen = "/img/dado" + resultado + ".1.png";
+                ImageIcon iconoDado = new ImageIcon(getClass().getResource(rutaImagen));
+                javax.swing.JButton btn = panelControl.getBtnDado();
+                btn.setIcon(iconoDado);
+                btn.setText("");
+                panelJuego.repaint();
                 break;
 
             case "AtrasPanelControl":

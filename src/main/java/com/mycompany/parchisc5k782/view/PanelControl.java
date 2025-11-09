@@ -38,6 +38,8 @@ public class PanelControl extends javax.swing.JPanel {
         this.jlNombreJugador2.setText(jlNombreJugador2);
     }
     
+    
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -55,7 +57,10 @@ public class PanelControl extends javax.swing.JPanel {
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        btnDado.setText("Dado");
+        btnDado.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/dado1.1.png"))); // NOI18N
+        btnDado.setActionCommand("Dado");
+        btnDado.setBorderPainted(false);
+        btnDado.setContentAreaFilled(false);
         add(btnDado, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 90, -1, -1));
 
         btnAtras.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/botonAtras.png"))); // NOI18N
@@ -84,4 +89,11 @@ public class PanelControl extends javax.swing.JPanel {
     private javax.swing.JLabel jlNombreJugador1;
     private javax.swing.JLabel jlNombreJugador2;
     // End of variables declaration//GEN-END:variables
+
+    public javax.swing.JButton getBtnDado(){
+    
+        return btnDado;
+    
+    }
+
 }

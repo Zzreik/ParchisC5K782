@@ -7,6 +7,7 @@ package com.mycompany.parchisc5k782.controller;
 import com.mycompany.parchisc5k782.view.GUICreditos;
 import com.mycompany.parchisc5k782.view.GUIHistoriaJuego;
 import com.mycompany.parchisc5k782.view.GUIInstrucciones;
+import com.mycompany.parchisc5k782.view.GUIJuego;
 import com.mycompany.parchisc5k782.view.GUIJugador;
 import com.mycompany.parchisc5k782.view.GUIPrincipal;
 import java.awt.event.ActionEvent;
@@ -24,6 +25,7 @@ public class PrincipalController implements ActionListener {
     private GUIHistoriaJuego guiHistoriaJuego;
     private ControladorJuego controladorJuego;
     private GUIJugador guiJugador;
+    private GUIJuego guiJuego;
 
     public PrincipalController() {
         guiPrincipal = new GUIPrincipal(this);
@@ -52,6 +54,7 @@ public class PrincipalController implements ActionListener {
                 System.out.println(guiJugador.getTxtJugador1());
                 System.out.println(guiJugador.getTxtJugador2());
                 controladorJuego = new ControladorJuego(guiPrincipal,guiJugador.getCbColor(),guiJugador.getTxtJugador1(),guiJugador.getTxtJugador2());
+                guiJuego.setVisible(false);
                 break;
                 
 
