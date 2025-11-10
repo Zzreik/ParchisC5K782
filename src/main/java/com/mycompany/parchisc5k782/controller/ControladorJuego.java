@@ -33,6 +33,9 @@ public class ControladorJuego implements ActionListener, MouseListener {
     private Ficha ficha;
     private AreaJuego areaJuego;
     private Dado dado;
+    
+    private int resultadoDado = 0;
+    private boolean turnoTerminado = true;
 
     public ControladorJuego(GUIPrincipal guiPrincipal, String colorJugador1, String nombreJugador1,  String nombreJugador2) {
         this.guiPrincipal = guiPrincipal;
@@ -62,14 +65,31 @@ public class ControladorJuego implements ActionListener, MouseListener {
         switch (e.getActionCommand()) {
 
             case "Dado":
-                int resultado = dado.lanzar();
-                System.out.println("Resultado de dado:" + resultado);
-                String rutaImagen = "/img/dado" + resultado + ".1.png";
-                ImageIcon iconoDado = new ImageIcon(getClass().getResource(rutaImagen));
-                javax.swing.JButton btn = panelControl.getBtnDado();
-                btn.setIcon(iconoDado);
-                btn.setText("");
-                panelJuego.repaint();
+                if(turnoTerminado){
+                    resultadoDado = dado.lanzar();
+                    System.out.println("Resultado de dado:" + resultadoDado);
+                    String rutaImagen = "/img/dado" + resultadoDado + ".1.png";
+                    ImageIcon iconoDado = new ImageIcon(getClass().getResource(rutaImagen));
+                    javax.swing.JButton btn = panelControl.getBtnDado();
+                    btn.setIcon(iconoDado);
+                    btn.setText("");
+                    panelJuego.repaint();
+                    
+                    if(resultadoDado == 5){
+                        turnoTerminado = false;
+                        System.out.println("Jugador 1: !Saca una ficha de la casa!");
+                        
+                    } else {
+                    
+                        turnoTerminado = true;
+                    
+                    }
+                
+                } else {
+                
+                    System.out.println("Debes mover una ficha antes de volver a tirar el dado.");
+                
+                }
                 break;
 
             case "AtrasPanelControl":
@@ -84,15 +104,24 @@ public class ControladorJuego implements ActionListener, MouseListener {
     @Override
     public void mouseClicked(MouseEvent e) {
         System.out.println("X " + e.getX() + " Y " + e.getY());
-//        ficha.getPosicion().setX(e.getX());
-//        ficha.getPosicion().setY(e.getY());
-        if(areaJuego.isContains(e.getX(), e.getY())){
+        if(resultadoDado == 5 && !turnoTerminado){
         
-            System.out.println("Si hay una Ficha");
-            System.out.println("Indice de la ficha: " + areaJuego.getIndexFicha(e.getX(), e.getY()));
-        } else {
-        
-            System.out.println("No hay una Ficha");
+          if(areaJuego.isContains(e.getX(), e.getY())){
+          
+              int indexFicha = areaJuego.getIndexFicha(e.getX(), e.getY());
+              
+              if (indexFicha != -1){
+              
+                  System.out.println("Moviendo ficha en indice de casa: " + indexFicha);
+                  
+                  areaJuego.sacarFicha(indexFicha);
+                  
+                  turnoTerminado = true;
+                  resultadoDado = 0;
+              
+              }
+          
+          }
         
         }
         panelJuego.repaint();

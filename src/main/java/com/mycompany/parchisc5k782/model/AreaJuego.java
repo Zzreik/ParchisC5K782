@@ -35,6 +35,14 @@ public class AreaJuego {
     
     }
     
+    public void sacarFicha(int indexFichaCasa){
+        Ficha fichaASacar = tablero.getCasaJugador1().getFicha(indexFichaCasa);
+        tablero.sacarFicha(fichaASacar, jugador1.getColor());
+        tablero.getCasaJugador1().setFicha(indexFichaCasa, null);
+    }
+    
+    
+    
     public void crearJugadores(String colorJugador1, String nombreJugador1,  String nombreJugador2){
     
         switch(colorJugador1){
