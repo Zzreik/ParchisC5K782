@@ -8,6 +8,7 @@ import com.mycompany.parchisc5k782.model.AreaJuego;
 import com.mycompany.parchisc5k782.model.Dado;
 import com.mycompany.parchisc5k782.model.Ficha;
 import com.mycompany.parchisc5k782.model.Posicion;
+import com.mycompany.parchisc5k782.model.Pregunta;
 import com.mycompany.parchisc5k782.view.GUIGameOver;
 import com.mycompany.parchisc5k782.view.GUIJuego;
 import com.mycompany.parchisc5k782.view.GUIPrincipal;
@@ -21,6 +22,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -69,6 +71,42 @@ public class ControladorJuego implements ActionListener, MouseListener {
 
     }
 
+    
+    private void hacerPregunta(){
+        Pregunta pregunta = areaJuego.getPreguntaAleatroia();
+        if (pregunta == null){
+        System.out.println("Error: No hay preguntas en el banco.");
+        return;
+        }
+        
+        int respuestaCorrecta = pregunta.isRespuesta();
+        String enunciado = pregunta.getEnunciado();
+        
+        int respuestaUsuarioInt = JOptionPane.showConfirmDialog(guiJuego,enunciado,"Pregunta",JOptionPane.YES_NO_OPTION);
+        
+        boolean acierto = (respuestaUsuarioInt == respuestaCorrecta);
+        
+        if (acierto) {
+            JOptionPane.showMessageDialog(guiJuego, "!Respuesata correcta! +1 punto.");
+            areaJuego.aplicarResultadoPregunta(true);
+
+        } else {
+            JOptionPane.showMessageDialog(guiJuego, "!Respuesata incorrecta! -1 punto.");
+            areaJuego.aplicarResultadoPregunta(false);
+        }
+    }
+    
+    private void finalizarTurno(){
+        System.out.println("Turno finalizado");
+        turnoTerminado = true;
+        resultadoDado = 0;
+        panelJuego.repaint();
+    
+    }
+    
+    
+    
+    
     @Override
     public void actionPerformed(ActionEvent e) {
 
@@ -149,9 +187,7 @@ public class ControladorJuego implements ActionListener, MouseListener {
             System.out.println("Moviendo ficha en indice de casa: " + indexFichaCasa); 
             areaJuego.sacarFicha(indexFichaCasa);
             
-            turnoTerminado = true;
-            resultadoDado = 0;
-            panelJuego.repaint();
+            finalizarTurno();
             return;
             
             }
@@ -161,32 +197,23 @@ public class ControladorJuego implements ActionListener, MouseListener {
         int indiceCelda = areaJuego.getIndexFichaEnTablero(e.getX(), e.getY());
         if (indiceCelda != -1) {
             System.out.println("Moviendo ficha de celda " + indiceCelda + " " + resultadoDado + "pasos.");
-            areaJuego.moverFicha(indiceCelda, resultadoDado);
-            
-            turnoTerminado = true;
-            resultadoDado = 0 ;
+            int nuevaCeldaIndice = areaJuego.moverFicha(indiceCelda, resultadoDado);
             panelJuego.repaint();
+            if (areaJuego.isCeldaNormal(nuevaCeldaIndice)){
+                System.out.println("Casilla normal, mostrando pregunta!");
+                hacerPregunta();
+            } else {
+                System.out.println("Casilla especial, turno seguro.");
+            }
+            
+            finalizarTurno();
             return;
         
         }
         
         System.out.println("Click en un area no valida. Intenta de nuevo.");
         
-//        if(resultadoDado == 5 && !turnoTerminado){
-//            
-//          if(areaJuego.isContains(e.getX(), e.getY())){
-//              int indexFicha = areaJuego.getIndexFicha(e.getX(), e.getY());
-//              if (indexFicha != -1){
-//                  System.out.println("Moviendo ficha en indice de casa: " + indexFicha);
-//                  areaJuego.sacarFicha(indexFicha);
-//                  turnoTerminado = true;
-//                  resultadoDado = 0;
-//              }
-//          
-//          }
-//        
-//        }
-//        panelJuego.repaint();
+
     }
 
     @Override

@@ -36,4 +36,19 @@ public class Jugador {
         this.color = color;
     }
     
+    public int getPuntos(){
+        return puntos;
+    }
+    
+    public void sumarPuntos(){
+        this.puntos++;
+    }
+    
+    
+    public void restarPunto(){
+        if (this.puntos > 0){
+         this.puntos--;
+        }
+    }   
+    
 }

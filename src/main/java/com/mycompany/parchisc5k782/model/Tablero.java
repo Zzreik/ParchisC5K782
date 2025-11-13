@@ -292,7 +292,7 @@ public class Tablero {
 
     }
     
-    public void moverFicha(int indiceActual, int pasos){
+    public int moverFicha(int indiceActual, int pasos){
     
         int nuevoIndice = (indiceActual + pasos) % 68;
         
@@ -300,7 +300,15 @@ public class Tablero {
         tablero[indiceActual].setFicha(null);
         tablero[nuevoIndice].setFicha(ficha);
         ficha.setPosicion(tablero[nuevoIndice].getPosicion());
+        return nuevoIndice;
     
+    }
+    
+    public boolean isCeldaNormal(int indice){
+        if (indice < 0 || indice >= tablero.length || tablero[indice] == null){
+            return false;
+        }
+        return !(tablero[indice] instanceof CeldaEspecial);
     }
     
     

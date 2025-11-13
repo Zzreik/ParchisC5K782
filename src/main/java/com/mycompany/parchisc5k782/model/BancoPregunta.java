@@ -5,6 +5,7 @@
 package com.mycompany.parchisc5k782.model;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 /**
  *
@@ -13,10 +14,23 @@ import java.util.ArrayList;
 public class BancoPregunta {
    
     private ArrayList<Pregunta> listaPregunta;
+    private Random random;
 
     public BancoPregunta() {
         listaPregunta = new ArrayList<Pregunta>();
+        random = new Random();
+        crearPreguntas();
     }
+    
+    public Pregunta getPreguntaAleatoria(){
+        
+        if (listaPregunta.isEmpty()){
+            return null;
+        }
+        int index = random.nextInt(listaPregunta.size());
+        return listaPregunta.get(index);     
+    }
+    
     
     public void crearPreguntas(){
         agregar(new Pregunta("¿Java es un lenguaje orientado a objetos?",0));

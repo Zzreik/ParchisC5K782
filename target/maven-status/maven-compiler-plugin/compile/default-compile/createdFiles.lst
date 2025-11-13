@@ -4,6 +4,7 @@ com\mycompany\parchisc5k782\model\BancoPregunta.class
 com\mycompany\parchisc5k782\controller\PrincipalController.class
 com\mycompany\parchisc5k782\view\GUICreditos.class
 com\mycompany\parchisc5k782\model\CeldaEspecial.class
+com\mycompany\parchisc5k782\view\GUIWin.class
 com\mycompany\parchisc5k782\model\Tablero.class
 com\mycompany\parchisc5k782\view\PanelControl.class
 com\mycompany\parchisc5k782\view\GUIInstrucciones.class
@@ -23,3 +24,4 @@ com\mycompany\parchisc5k782\view\GUIHistoriaJuego$1.class
 com\mycompany\parchisc5k782\view\GUIPrincipal.class
 com\mycompany\parchisc5k782\model\Posicion.class
 com\mycompany\parchisc5k782\model\Jugador.class
+com\mycompany\parchisc5k782\view\GUIGameOver.class
