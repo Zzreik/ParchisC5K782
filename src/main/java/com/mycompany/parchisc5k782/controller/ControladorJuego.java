@@ -26,6 +26,9 @@ import javax.swing.ImageIcon;
  */
 public class ControladorJuego implements ActionListener, MouseListener {
 
+    
+    
+    
     private GUIJuego guiJuego;
     private PanelJuego panelJuego;
     private PanelControl panelControl;
