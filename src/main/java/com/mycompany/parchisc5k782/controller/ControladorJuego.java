@@ -8,8 +8,10 @@ import com.mycompany.parchisc5k782.model.AreaJuego;
 import com.mycompany.parchisc5k782.model.Dado;
 import com.mycompany.parchisc5k782.model.Ficha;
 import com.mycompany.parchisc5k782.model.Posicion;
+import com.mycompany.parchisc5k782.view.GUIGameOver;
 import com.mycompany.parchisc5k782.view.GUIJuego;
 import com.mycompany.parchisc5k782.view.GUIPrincipal;
+import com.mycompany.parchisc5k782.view.GUIWin;
 import com.mycompany.parchisc5k782.view.PanelControl;
 import com.mycompany.parchisc5k782.view.PanelJuego;
 import java.awt.Component;
@@ -36,6 +38,9 @@ public class ControladorJuego implements ActionListener, MouseListener {
     private Ficha ficha;
     private AreaJuego areaJuego;
     private Dado dado;
+    private GUIGameOver guiGameOver;
+    private GUIWin guiWin;
+    
     
     private int resultadoDado = 0;
     private boolean turnoTerminado = true;
@@ -43,6 +48,8 @@ public class ControladorJuego implements ActionListener, MouseListener {
     public ControladorJuego(GUIPrincipal guiPrincipal, String colorJugador1, String nombreJugador1,  String nombreJugador2) {
         this.guiPrincipal = guiPrincipal;
         guiJuego = new GUIJuego(this);
+        guiGameOver = new GUIGameOver();
+        guiWin = new GUIWin();
         panelJuego = guiJuego.getPanelJuego();
         areaJuego = new AreaJuego(colorJugador1,nombreJugador1,nombreJugador2);
         panelControl = guiJuego.getPanelControl();
@@ -101,6 +108,25 @@ public class ControladorJuego implements ActionListener, MouseListener {
             case "AtrasPanelControl":
                 guiJuego.dispose();
                 guiPrincipal.setVisible(true);
+                break;
+                
+                
+             case "Menu":
+                guiPrincipal.setVisible(true);
+                guiGameOver.setVisible(false);
+                break;   
+            
+             case "MenuWin":
+                guiPrincipal.setVisible(true);
+                guiGameOver.setVisible(false);
+                break;
+                
+            case "Reiniciar":
+                
+                break;
+                
+            case "ReiniciarWin":
+                
                 break;
 
         }
