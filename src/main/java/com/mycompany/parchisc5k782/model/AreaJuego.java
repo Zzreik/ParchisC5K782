@@ -41,7 +41,13 @@ public class AreaJuego {
         tablero.getCasaJugador1().setFicha(indexFichaCasa, null);
     }
     
+    public int getIndexFichaEnTablero(int x, int y){
+        return tablero.getIndexFichaEnTablero(x,y);
+    }
     
+    public void moverFicha(int indiceActual, int pasos){
+        tablero.moverFicha(indiceActual, pasos);
+    }
     
     public void crearJugadores(String colorJugador1, String nombreJugador1,  String nombreJugador2){
     

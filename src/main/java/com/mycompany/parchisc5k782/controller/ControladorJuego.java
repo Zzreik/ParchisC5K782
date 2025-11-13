@@ -78,13 +78,16 @@ public class ControladorJuego implements ActionListener, MouseListener {
                     btn.setText("");
                     panelJuego.repaint();
                     
+                    turnoTerminado = false;
+                    
+                    
                     if(resultadoDado == 5){
-                        turnoTerminado = false;
-                        System.out.println("Jugador 1: !Saca una ficha de la casa!");
+                        
+                        System.out.println("Jugador 1: !Saca o mueve una ficha!");
                         
                     } else {
                     
-                        turnoTerminado = true;
+                        System.out.println("Jugador 1: Mueve " + resultadoDado + " casillas.");
                     
                     }
                 
@@ -107,27 +110,57 @@ public class ControladorJuego implements ActionListener, MouseListener {
     @Override
     public void mouseClicked(MouseEvent e) {
         System.out.println("X " + e.getX() + " Y " + e.getY());
-        if(resultadoDado == 5 && !turnoTerminado){
         
-          if(areaJuego.isContains(e.getX(), e.getY())){
-          
-              int indexFicha = areaJuego.getIndexFicha(e.getX(), e.getY());
-              
-              if (indexFicha != -1){
-              
-                  System.out.println("Moviendo ficha en indice de casa: " + indexFicha);
-                  
-                  areaJuego.sacarFicha(indexFicha);
-                  
-                  turnoTerminado = true;
-                  resultadoDado = 0;
-              
-              }
-          
-          }
+        if (turnoTerminado) {
+            System.out.println("Espera, debes lanzar el dado primero.");
+            return;
+        }
+        
+        if (resultadoDado == 5){
+        
+            int indexFichaCasa = areaJuego.getIndexFicha(e.getX(), e.getY());
+            if (indexFichaCasa != -1){
+            System.out.println("Moviendo ficha en indice de casa: " + indexFichaCasa); 
+            areaJuego.sacarFicha(indexFichaCasa);
+            
+            turnoTerminado = true;
+            resultadoDado = 0;
+            panelJuego.repaint();
+            return;
+            
+            }
+            
+        }
+        
+        int indiceCelda = areaJuego.getIndexFichaEnTablero(e.getX(), e.getY());
+        if (indiceCelda != -1) {
+            System.out.println("Moviendo ficha de celda " + indiceCelda + " " + resultadoDado + "pasos.");
+            areaJuego.moverFicha(indiceCelda, resultadoDado);
+            
+            turnoTerminado = true;
+            resultadoDado = 0 ;
+            panelJuego.repaint();
+            return;
         
         }
-        panelJuego.repaint();
+        
+        System.out.println("Click en un area no valida. Intenta de nuevo.");
+        
+//        if(resultadoDado == 5 && !turnoTerminado){
+//            
+//          if(areaJuego.isContains(e.getX(), e.getY())){
+//              int indexFicha = areaJuego.getIndexFicha(e.getX(), e.getY());
+//              if (indexFicha != -1){
+//                  System.out.println("Moviendo ficha en indice de casa: " + indexFicha);
+//                  areaJuego.sacarFicha(indexFicha);
+//                  turnoTerminado = true;
+//                  resultadoDado = 0;
+//              }
+//          
+//          }
+//        
+//        }
+//        panelJuego.repaint();
     }
 
     @Override
