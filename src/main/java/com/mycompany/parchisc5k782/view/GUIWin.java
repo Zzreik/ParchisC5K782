@@ -18,6 +18,11 @@ public class GUIWin extends javax.swing.JFrame {
     public GUIWin() {
         initComponents();
     }
+    
+    
+    public void setEstadisticas(String mensaje){
+        jlEstadisticasFinal.setText(mensaje);
+        }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -30,6 +35,7 @@ public class GUIWin extends javax.swing.JFrame {
 
         btnWinReiniciar = new javax.swing.JButton();
         btnVolverMenu = new javax.swing.JButton();
+        jlEstadisticasFinal = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -46,6 +52,10 @@ public class GUIWin extends javax.swing.JFrame {
         btnVolverMenu.setBorderPainted(false);
         btnVolverMenu.setContentAreaFilled(false);
         getContentPane().add(btnVolverMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 370, -1, -1));
+
+        jlEstadisticasFinal.setFont(new java.awt.Font("Segoe UI Black", 0, 24)); // NOI18N
+        jlEstadisticasFinal.setText("0");
+        getContentPane().add(jlEstadisticasFinal, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 230, -1, -1));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/panelVictoria.png"))); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 710, 590));
@@ -82,5 +92,6 @@ public class GUIWin extends javax.swing.JFrame {
     private javax.swing.JButton btnVolverMenu;
     private javax.swing.JButton btnWinReiniciar;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jlEstadisticasFinal;
     // End of variables declaration//GEN-END:variables
 }

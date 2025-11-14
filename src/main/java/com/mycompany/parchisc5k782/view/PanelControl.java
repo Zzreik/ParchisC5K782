@@ -37,6 +37,14 @@ public class PanelControl extends javax.swing.JPanel {
     public void setJlNombreJugador2(String jlNombreJugador2) {
         this.jlNombreJugador2.setText(jlNombreJugador2);
     }
+
+    public void setJlPuntosJuagdor2(int puntos) {
+        jlPuntosJugador2.setText("Puntos: " + puntos);
+    }
+
+    public void setJlPuntosJugador1(int puntos) {
+        jlPuntosJugador1.setText("Puntos: " + puntos);
+    }
     
     
     
@@ -53,6 +61,8 @@ public class PanelControl extends javax.swing.JPanel {
         btnAtras = new javax.swing.JButton();
         jlNombreJugador1 = new javax.swing.JLabel();
         jlNombreJugador2 = new javax.swing.JLabel();
+        jlPuntosJugador1 = new javax.swing.JLabel();
+        jlPuntosJugador2 = new javax.swing.JLabel();
         jlFondo = new javax.swing.JLabel();
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -77,6 +87,16 @@ public class PanelControl extends javax.swing.JPanel {
         jlNombreJugador2.setText("Jugador2");
         add(jlNombreJugador2, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 460, -1, -1));
 
+        jlPuntosJugador1.setFont(new java.awt.Font("Segoe UI Black", 0, 14)); // NOI18N
+        jlPuntosJugador1.setForeground(new java.awt.Color(255, 255, 255));
+        jlPuntosJugador1.setText("Puntos: 5");
+        add(jlPuntosJugador1, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 330, -1, -1));
+
+        jlPuntosJugador2.setFont(new java.awt.Font("Segoe UI Black", 0, 14)); // NOI18N
+        jlPuntosJugador2.setForeground(new java.awt.Color(255, 255, 255));
+        jlPuntosJugador2.setText("Puntos: 5");
+        add(jlPuntosJugador2, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 520, -1, -1));
+
         jlFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/TableroFondo.png"))); // NOI18N
         add(jlFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
@@ -88,6 +108,8 @@ public class PanelControl extends javax.swing.JPanel {
     private javax.swing.JLabel jlFondo;
     private javax.swing.JLabel jlNombreJugador1;
     private javax.swing.JLabel jlNombreJugador2;
+    private javax.swing.JLabel jlPuntosJugador1;
+    private javax.swing.JLabel jlPuntosJugador2;
     // End of variables declaration//GEN-END:variables
 
     public javax.swing.JButton getBtnDado(){

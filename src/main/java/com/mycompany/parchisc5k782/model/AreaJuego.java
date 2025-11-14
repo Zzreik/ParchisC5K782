@@ -60,6 +60,10 @@ public class AreaJuego {
         return bancoPregunta.getPreguntaAleatoria();
     }
     
+    public int getPuntosJugador1(){
+        return jugador1.getPuntos();
+    }
+    
     public void aplicarResultadoPregunta(boolean acierto){
     
         if(acierto){

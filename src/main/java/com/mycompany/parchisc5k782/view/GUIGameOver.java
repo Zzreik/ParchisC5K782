@@ -18,6 +18,12 @@ public class GUIGameOver extends javax.swing.JFrame {
     public GUIGameOver() {
         initComponents();
     }
+    
+    public void setPuntajeFinal(int puntaje) {
+        jlPuntajeFinal.setText(String.valueOf(puntaje));
+    }
+    
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -30,6 +36,7 @@ public class GUIGameOver extends javax.swing.JFrame {
 
         btnGameOverReiniciar = new javax.swing.JButton();
         btnVolverMenu = new javax.swing.JButton();
+        jlPuntajeFinal = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -47,7 +54,12 @@ public class GUIGameOver extends javax.swing.JFrame {
         btnVolverMenu.setContentAreaFilled(false);
         getContentPane().add(btnVolverMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 370, -1, -1));
 
+        jlPuntajeFinal.setFont(new java.awt.Font("Segoe UI Black", 0, 24)); // NOI18N
+        jlPuntajeFinal.setText("0");
+        getContentPane().add(jlPuntajeFinal, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 280, -1, -1));
+
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/panelGameOver.png"))); // NOI18N
+        jLabel1.setText("0");
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         pack();
@@ -82,5 +94,6 @@ public class GUIGameOver extends javax.swing.JFrame {
     private javax.swing.JButton btnGameOverReiniciar;
     private javax.swing.JButton btnVolverMenu;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jlPuntajeFinal;
     // End of variables declaration//GEN-END:variables
 }

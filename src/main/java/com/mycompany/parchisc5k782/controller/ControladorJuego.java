@@ -94,6 +94,9 @@ public class ControladorJuego implements ActionListener, MouseListener {
             JOptionPane.showMessageDialog(guiJuego, "!Respuesata incorrecta! -1 punto.");
             areaJuego.aplicarResultadoPregunta(false);
         }
+        
+        int puntosActuales = areaJuego.getPuntosJugador1();
+        panelControl.setJlPuntosJugador1(puntosActuales);
     }
     
     private void finalizarTurno(){
@@ -103,6 +106,31 @@ public class ControladorJuego implements ActionListener, MouseListener {
         panelJuego.repaint();
     
     }
+    
+    public void mostrarGameOver(int puntajeFinal){
+        guiJuego.setVisible(false);
+        if(guiGameOver == null) {
+        guiGameOver = new GUIGameOver();
+        
+        }
+        guiGameOver.setPuntajeFinal(puntajeFinal);
+        guiGameOver.setVisible(true);
+        
+    }
+    
+    
+    
+//    public int mostrarWin(int puntaje){
+//        
+//        guiJuego.setVisible(false);
+//        if(guiWin == null) {
+//        guiWin = new GUIWin();
+//        
+//        }
+//        guiWin.setEstadisticas(puntaje);
+//        guiWin.setVisible(true);
+//        
+//    }
     
     
     
