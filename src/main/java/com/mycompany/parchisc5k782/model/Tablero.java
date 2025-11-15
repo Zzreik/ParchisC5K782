@@ -308,7 +308,7 @@ public class Tablero {
         if (indice < 0 || indice >= tablero.length || tablero[indice] == null){
             return false;
         }
-        return !(tablero[indice] instanceof CeldaEspecial);
+        return (tablero[indice] instanceof CeldaEspecial);
     }
     
     
