@@ -24,7 +24,7 @@ public class Ficha {
         this.posicion = posicion;
         this.imagen = imagen;
         this.color = color;
-        hitbox = new Rectangle(posicion.getX()+30,posicion.getY()+30);
+        hitbox = new Rectangle(posicion.getX(), posicion.getY(),30,30);
         inTablero=false;
     }
     
@@ -40,6 +40,7 @@ public class Ficha {
 
     public void setPosicion(Posicion posicion) {
         this.posicion = posicion;
+        this.hitbox.setLocation(posicion.getX(), posicion.getY());
     }
 
     public ImageIcon getImagen() {
