@@ -114,10 +114,10 @@ public class AreaJuego {
         Jugador jugadorActivo = (jugadorId == 1) ? jugador1 : jugador2;
 
         if (acierto) {
-            jugador1.sumarPuntos();
+            jugadorActivo.sumarPuntos();
             System.out.println(jugadorActivo.getNombre() + " suma 1 punto. Total: " + jugador1.getPuntos());
         } else {
-            jugador1.restarPunto();
+            jugadorActivo.restarPunto();
             System.out.println(jugadorActivo.getNombre() + " resta 1 punto. Total: " + jugador1.getPuntos());
         }
 
