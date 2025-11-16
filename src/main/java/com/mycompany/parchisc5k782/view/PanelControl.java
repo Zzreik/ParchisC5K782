@@ -5,6 +5,7 @@
 package com.mycompany.parchisc5k782.view;
 
 import com.mycompany.parchisc5k782.controller.ControladorJuego;
+import java.awt.Color;
 import javax.swing.JLabel;
 
 /**
@@ -46,7 +47,31 @@ public class PanelControl extends javax.swing.JPanel {
         jlPuntosJugador1.setText("Puntos: " + puntos);
     }
     
+    public void resaltarTurno(int jugadorActivo) {
+        jlNombreJugador1.setForeground(Color.BLACK);
+        jlNombreJugador2.setForeground(Color.BLACK);
+        
+        jlPuntosJugador1.setForeground(Color.WHITE);
+        jlPuntosJugador2.setForeground(Color.WHITE);
+        
+        
+        if (jugadorActivo == 1){
+            jlNombreJugador1.setForeground(Color.RED);
+            jlPuntosJugador1.setForeground(Color.GREEN);
+        } else if (jugadorActivo == 2){
+            jlNombreJugador2.setForeground(Color.RED);
+            jlPuntosJugador2.setForeground(Color.GREEN);
+        
+        }
+    }
     
+    public void setJLPuntosJugador1(int puntos){
+        jlPuntosJugador1.setText("Puntos: " + puntos);
+    }
+    
+    public void setJLPuntosJugador2(int puntos){
+        jlPuntosJugador2.setText("Puntos: " + puntos);
+    }
     
     /**
      * This method is called from within the constructor to initialize the form.

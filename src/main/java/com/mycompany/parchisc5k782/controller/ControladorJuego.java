@@ -9,6 +9,7 @@ import com.mycompany.parchisc5k782.model.Dado;
 import com.mycompany.parchisc5k782.model.Ficha;
 import com.mycompany.parchisc5k782.model.Posicion;
 import com.mycompany.parchisc5k782.model.Pregunta;
+import com.mycompany.parchisc5k782.model.Tablero;
 import com.mycompany.parchisc5k782.view.GUIGameOver;
 import com.mycompany.parchisc5k782.view.GUIJuego;
 import com.mycompany.parchisc5k782.view.GUIPrincipal;
@@ -34,6 +35,7 @@ public class ControladorJuego implements ActionListener, MouseListener {
     
     
     private GUIJuego guiJuego;
+    private Tablero  tablero;
     private PanelJuego panelJuego;
     private PanelControl panelControl;
     private GUIPrincipal guiPrincipal;
@@ -43,7 +45,9 @@ public class ControladorJuego implements ActionListener, MouseListener {
     private GUIGameOver guiGameOver;
     private GUIWin guiWin;
     
-    
+    private int turnoActual;
+    private int valorDado;
+    private boolean fichaEnJuegoSeleccionada;
     private int resultadoDado = 0;
     private boolean turnoTerminado = true;
 
@@ -58,7 +62,15 @@ public class ControladorJuego implements ActionListener, MouseListener {
         panelControl.setJlNombreJugador1(nombreJugador1);
         panelControl.setJlNombreJugador2(nombreJugador2);
         dado = new Dado();
+        
+        this.turnoActual = 1;
+        this.valorDado = 0;
+        this.fichaEnJuegoSeleccionada = false;
+        
+        guiJuego.getPanelControl().resaltarTurno(turnoActual);
+        
         guiJuego.setVisible(true);
+        
         
         //Aficha = new Ficha(new Posicion(100, 100), new ImageIcon("./src/main/resources/img/pieceblue.png"), "Amarillo");
         //453,468
@@ -88,15 +100,33 @@ public class ControladorJuego implements ActionListener, MouseListener {
         
         if (acierto) {
             JOptionPane.showMessageDialog(guiJuego, "!Respuesata correcta! +1 punto.");
-            areaJuego.aplicarResultadoPregunta(true);
+            areaJuego.aplicarResultadoPregunta(true, turnoActual);
 
         } else {
             JOptionPane.showMessageDialog(guiJuego, "!Respuesata incorrecta! -1 punto.");
-            areaJuego.aplicarResultadoPregunta(false);
+            areaJuego.aplicarResultadoPregunta(false, turnoActual);
         }
         
-        int puntosActuales = areaJuego.getPuntosJugador1();
-        panelControl.setJlPuntosJugador1(puntosActuales);
+        if (turnoActual == 1){
+            
+            panelControl.setJLPuntosJugador1(areaJuego.getPuntosJugador1());
+        } else {
+            panelControl.setJLPuntosJugador2(areaJuego.getPuntosJugador2());
+        }
+        
+        
+        
+        
+    }
+    
+    private void cambiarTurno(){
+        valorDado = 0;
+        fichaEnJuegoSeleccionada = false;
+        turnoActual = (turnoActual == 1) ? 2 : 1;
+        guiJuego.getPanelControl().resaltarTurno(turnoActual);
+        
+        String nombreActivo = (turnoActual == 1) ? areaJuego.getNombreJugador1() : areaJuego.getNombreJugador2();
+        System.out.println("--- Turno de: " + nombreActivo + "---");
     }
     
     private void finalizarTurno(){
@@ -138,6 +168,10 @@ public class ControladorJuego implements ActionListener, MouseListener {
     @Override
     public void actionPerformed(ActionEvent e) {
 
+        String nombreActivo = (turnoActual == 1)
+                  ? areaJuego.getColorJugador1()
+                  : areaJuego.getColorJugador2();
+        
         switch (e.getActionCommand()) {
 
             case "Dado":
@@ -152,15 +186,14 @@ public class ControladorJuego implements ActionListener, MouseListener {
                     panelJuego.repaint();
                     
                     turnoTerminado = false;
-                    
-                    
+                                                       
                     if(resultadoDado == 5){
                         
-                        System.out.println("Jugador 1: !Saca o mueve una ficha!");
+                        System.out.println(nombreActivo + ": !Saca o mueve una ficha!");
                         
                     } else {
                     
-                        System.out.println("Jugador 1: Mueve " + resultadoDado + " casillas.");
+                        System.out.println(nombreActivo + ": Mueve " + resultadoDado + " casillas.");
                     
                     }
                 
@@ -201,7 +234,12 @@ public class ControladorJuego implements ActionListener, MouseListener {
 
     @Override
     public void mouseClicked(MouseEvent e) {
-        System.out.println("X " + e.getX() + " Y " + e.getY());
+        
+        
+        String colorActivo = (turnoActual == 1)
+                  ? areaJuego.getColorJugador1()
+                  : areaJuego.getColorJugador2();
+      
         
         if (turnoTerminado) {
             System.out.println("Espera, debes lanzar el dado primero.");
@@ -209,23 +247,25 @@ public class ControladorJuego implements ActionListener, MouseListener {
         }
         
         if (resultadoDado == 5){
-        
-            int indexFichaCasa = areaJuego.getIndexFicha(e.getX(), e.getY());
+
+            int indexFichaCasa = areaJuego.getIndexFichaCasa(e.getX(), e.getY(), colorActivo);
+
             if (indexFichaCasa != -1){
             System.out.println("Moviendo ficha en indice de casa: " + indexFichaCasa); 
-            areaJuego.sacarFicha(indexFichaCasa);
+            areaJuego.sacarFicha(indexFichaCasa, colorActivo);
             
             finalizarTurno();
+
             return;
             
             }
             
         }
         
-        int indiceCelda = areaJuego.getIndexFichaEnTablero(e.getX(), e.getY());
+        int indiceCelda = areaJuego.getIndexFichaEnTablero(e.getX(), e.getY(), colorActivo);
         if (indiceCelda != -1) {
             System.out.println("Moviendo ficha de celda " + indiceCelda + " " + resultadoDado + "pasos.");
-            int nuevaCeldaIndice = areaJuego.moverFicha(indiceCelda, resultadoDado);
+            int nuevaCeldaIndice = areaJuego.moverFicha(indiceCelda, resultadoDado, colorActivo);
             panelJuego.repaint();
             if (areaJuego.isCeldaNormal(nuevaCeldaIndice)){
                 System.out.println("Casilla normal, mostrando pregunta!");
@@ -235,6 +275,7 @@ public class ControladorJuego implements ActionListener, MouseListener {
             }
             
             finalizarTurno();
+            cambiarTurno();
             return;
         
         }

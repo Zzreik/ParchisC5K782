@@ -271,14 +271,28 @@ public class Tablero {
         }
         return -1;
     }
+    
+    public int getIndexFichaJugador(int x, int y, String colorJugador){
+        for(int i = 0; i < tablero.length; i++){
+            if(tablero[i] != null && tablero[i].getFicha() != null){
+                if(tablero[i].getFicha().getColor().equals(colorJugador)){
+                    if(tablero[i].getFicha().isContains(x, y)){
+                        return i;
+                    }
+                }
+            }
+        }
+        return -1;
+    }
 
-    public int getIndexFichaEnTablero(int x, int y) {
+    public int getIndexFichaEnTablero(int x, int y, String color) {
 
         for (int i = 0; i < tablero.length; i++) {
 
             if (tablero[i] != null && tablero[i].getFicha() != null) {
 
-                if (tablero[i].getFicha().getColor().equals(casaJugador1.getColor())) {
+                
+                if (tablero[i].getFicha().getColor().equals(color)) {
                     if (tablero[i].getFicha().isContains(x, y)) {
 
                         return i;
@@ -292,7 +306,7 @@ public class Tablero {
 
     }
     
-    public int moverFicha(int indiceActual, int pasos){
+    public int moverFicha(int indiceActual, int pasos, String color){
     
         int nuevoIndice = (indiceActual + pasos) % 68;
         

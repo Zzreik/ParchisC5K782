@@ -56,4 +56,13 @@ public class Casa {
         return fichas.length;
     
     }
+    
+    public int getIndexFicha(int x, int y){
+        for(int i = 0; i < fichas.length; i++){
+            if (fichas[i] != null && fichas[i].isContains(x, y)){
+                return i;
+            }
+        }
+        return -1;
+    }
 }
