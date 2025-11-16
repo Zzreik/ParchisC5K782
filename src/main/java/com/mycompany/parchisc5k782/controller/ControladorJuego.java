@@ -253,8 +253,8 @@ public class ControladorJuego implements ActionListener, MouseListener {
                   : areaJuego.getColorJugador2();
       
         
-        if (turnoTerminado) {
-            System.out.println("Espera, debes lanzar el dado primero.");
+        if (turnoTerminado || resultadoDado == 0) {
+            System.out.println("Espera, debes lanzar el dado primero o terminar de mover.");
             return;
         }
         
@@ -276,25 +276,26 @@ public class ControladorJuego implements ActionListener, MouseListener {
         
         int indiceCelda = areaJuego.getIndexFichaEnTablero(e.getX(), e.getY(), colorActivo);
         if (indiceCelda != -1) {
-            System.out.println("Moviendo ficha de celda " + indiceCelda + " " + resultadoDado + "pasos.");
+            System.out.println("Moviendo ficha de celda " + (indiceCelda+1) + " " + resultadoDado + " pasos.");
             int nuevaCeldaIndice = areaJuego.moverFicha(indiceCelda, resultadoDado, colorActivo);
             panelJuego.repaint();
             if (areaJuego.isCeldaNormal(nuevaCeldaIndice)){
-                System.out.println("Casilla normal, mostrando pregunta!");
-                hacerPregunta();
+                System.out.println("Casilla normal, no hay pregunta.");
+                 
             } else {
-                System.out.println("Casilla especial, turno seguro.");
-            }
+                System.out.println("Casilla especial, mostrando pregunta!");
+                hacerPregunta();
+        }
             
-            finalizarTurno();
-            cambiarTurno();
-            return;
+           
+        finalizarTurno();
+        cambiarTurno();
+        return;
+        
         
         }
-        
         System.out.println("Click en un area no valida. Intenta de nuevo.");
         
-
     }
 
     @Override

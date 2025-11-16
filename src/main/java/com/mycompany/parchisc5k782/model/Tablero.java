@@ -114,7 +114,7 @@ public class Tablero {
 
         x = 209;
         y = 245;
-        for (int indice = 42; indice < 44; indice++) {
+        for (int indice = 42; indice < 45; indice++) {
             tablero[indice] = new Celda(new Posicion(x, y));
             //tablero[indice].setFicha(new Ficha(new Posicion(x, y), new ImageIcon("./src/main/resources/img/pieceblack.png"), "negra"));
             x -= 30;
@@ -123,7 +123,7 @@ public class Tablero {
         //tablero[44].setFicha(new Ficha(new Posicion(x, y), new ImageIcon("./src/main/resources/img/pieceblue.png"), "negra"));
         x -= 30;
 
-        for (int indice = 45; indice < 50; indice++) {
+        for (int indice = 46; indice < 50; indice++) {
             tablero[indice] = new Celda(new Posicion(x, y));
             //tablero[indice].setFicha(new Ficha(new Posicion(x, y), new ImageIcon("./src/main/resources/img/pieceblack.png"), "negra"));
             x -= 30;
@@ -336,7 +336,7 @@ public class Tablero {
         if (indice < 0 || indice >= tablero.length || tablero[indice] == null){
             return false;
         }
-        return (tablero[indice] instanceof CeldaEspecial);
+        return !(tablero[indice] instanceof CeldaEspecial);
     }
     
     
