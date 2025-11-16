@@ -306,6 +306,20 @@ public class Tablero {
 
     }
     
+    public boolean tieneFichasEnTablero(String color){
+    
+        for (int i = 0; i < tablero.length; i++){
+            if (tablero[i] != null && tablero[i].getFicha() != null){
+                if (tablero[i].getFicha().getColor().equals(color)){
+                    return true;
+                }
+            }
+        }
+        
+        return false;
+    
+    }
+    
     public int moverFicha(int indiceActual, int pasos, String color){
     
         int nuevoIndice = (indiceActual + pasos) % 68;

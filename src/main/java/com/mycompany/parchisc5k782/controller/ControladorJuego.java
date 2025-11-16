@@ -169,6 +169,10 @@ public class ControladorJuego implements ActionListener, MouseListener {
     public void actionPerformed(ActionEvent e) {
 
         String nombreActivo = (turnoActual == 1)
+                  ? areaJuego.getNombreJugador1()
+                  : areaJuego.getNombreJugador2();
+        
+        String colorActivo = (turnoActual == 1)
                   ? areaJuego.getColorJugador1()
                   : areaJuego.getColorJugador2();
         
@@ -177,6 +181,7 @@ public class ControladorJuego implements ActionListener, MouseListener {
             case "Dado":
                 if(turnoTerminado){
                     resultadoDado = dado.lanzar();
+                    turnoTerminado = false;
                     System.out.println("Resultado de dado:" + resultadoDado);
                     String rutaImagen = "/img/dado" + resultadoDado + ".1.png";
                     ImageIcon iconoDado = new ImageIcon(getClass().getResource(rutaImagen));
@@ -185,7 +190,14 @@ public class ControladorJuego implements ActionListener, MouseListener {
                     btn.setText("");
                     panelJuego.repaint();
                     
-                    turnoTerminado = false;
+                    if(resultadoDado != 5 && !areaJuego.tieneFichasEnTablero(colorActivo)){
+                    
+                        System.out.println(nombreActivo + ": Sin movimientos posibles. Pasa el turno");
+                        finalizarTurno();
+                        cambiarTurno();
+                        
+                        break;
+                    }
                                                        
                     if(resultadoDado == 5){
                         
@@ -255,7 +267,7 @@ public class ControladorJuego implements ActionListener, MouseListener {
             areaJuego.sacarFicha(indexFichaCasa, colorActivo);
             
             finalizarTurno();
-
+            cambiarTurno();
             return;
             
             }
