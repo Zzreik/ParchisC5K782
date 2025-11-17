@@ -164,6 +164,81 @@ public class AreaJuego {
     public Casa getCasaJugador2() {
         return tablero.getCasaJugador2();
     }
+    
+    public Jugador getJugador(String color){
+        if (jugador1.getColor().equals(color)){
+            return jugador1;
+    } else if (jugador2.getColor().equals(color)){
+            return jugador2;
+    
+    } 
+        return null;
+    }
+    
+    
+    
+    public void regresarFichaCapturadaACasa(String colorJugador, int indiceCeldaCapturada){
+        
+        Casa casa = null;
+    if (jugador1.getColor().equals(colorJugador)) {
+        casa = tablero.getCasaJugador1();
+    } else if (jugador2.getColor().equals(colorJugador)) {
+        casa = tablero.getCasaJugador2();
+    }
+
+    if (casa == null) {
+        System.out.println("Error: Casa no encontrada para el color " + colorJugador);
+        return;
+    }
+    
+    // NOTA CLAVE: La ficha atacante YA ESTÁ en tablero[indiceCeldaCapturada]
+    // No la tocamos, ya que es el resultado exitoso del movimiento.
+
+    // Buscamos un espacio libre en la casa del jugador castigado.
+    for (int i = 0; i < 4; i++) {
+        if (casa.getFicha(i) == null) {
+            
+            // Creamos una nueva ficha para simular el regreso a casa.
+            // (La ficha antigua se perdió en el reemplazo de celda)
+            // Tienes que usar el color de la ficha que se está devolviendo a casa.
+            Ficha fichaRegresada = new Ficha(new Posicion(0,0), null, colorJugador);
+            
+            // Colocamos la ficha en la posición libre de la casa
+            casa.setFicha(i, fichaRegresada);
+            
+            // La posición (0,0) es un parche, pero las casas tienen sus propias posiciones internas.
+            // Para que se dibuje correctamente, el objeto Casa debe ser capaz de asignar 
+            // las coordenadas correctas a la nueva ficha (455, 462, etc.).
+
+            System.out.println("Ficha del jugador " + colorJugador + " regresada a casa, índice: " + i);
+            
+            // Es necesario forzar el redibujado de la casa para que la ficha aparezca en la GUI.
+            // Esto lo maneja PanelJuego.repaint() en el controlador.
+            
+            return;
+        }
+    }
+    System.out.println("ADVERTENCIA: No hay espacios libres en la casa del jugador " + colorJugador);
+}
+    
+    public void aplicarResultadoPreguntaColision(boolean acierto, int turnoJugadorActivo, int indiceCeldaCapturada){
+        int turnoJugadorAtacado = (turnoJugadorActivo == 1) ? 2 : 1;
+        Jugador jugadorAtacado = (turnoJugadorAtacado == 1) ? jugador1 : jugador2;
+        String colorAtacado = jugadorAtacado.getColor();
+        
+        if (acierto) {
+        
+        jugadorAtacado.sumarPuntos(2);
+       
+        
+        } else {
+            
+        jugadorAtacado.restarPuntos(3);
+        regresarFichaCapturadaACasa(colorAtacado, indiceCeldaCapturada);
+        
+        }
+        
+    }
 
     public void dibujar(Component component, Graphics g) {
         tablero.dibujar(component, g);

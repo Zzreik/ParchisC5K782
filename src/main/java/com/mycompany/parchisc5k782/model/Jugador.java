@@ -17,7 +17,7 @@ public class Jugador {
     public Jugador(String nombre, String color) {
         this.nombre = nombre;
         this.color = color;
-        puntos = 5;
+        this.puntos = 5;
     }
 
     public String getNombre() {
@@ -50,5 +50,14 @@ public class Jugador {
          this.puntos--;
         }
     }   
+    
+    public void sumarPuntos(int puntos){
+        this.puntos += puntos;
+    }
+    
+    
+    public void restarPuntos(int puntos){
+        this.puntos -= puntos;
+    }
     
 }

@@ -150,6 +150,7 @@ public class ControladorJuego implements ActionListener, MouseListener {
     
     
     
+    
 //    public int mostrarWin(int puntaje){
 //        
 //        guiJuego.setVisible(false);
@@ -162,6 +163,44 @@ public class ControladorJuego implements ActionListener, MouseListener {
 //        
 //    }
     
+ 
+    public int getIndexFichaEnTablero(int x, int y, String color) {
+        return tablero.getIndexFichaEnTablero(x, y, color);
+    }
+    
+
+    private void hacerPreguntaColision(int indiceCelda){
+    
+        Pregunta pregunta = areaJuego.getPreguntaAleatroia();
+        if (pregunta == null){
+            System.out.println("Error: No hay preguntas en el banco de pregutnas. Aplicadno castigo por defecto");
+            areaJuego.aplicarResultadoPreguntaColision(false,turnoActual, indiceCelda);
+            return;
+        }
+        
+        int respuestaCorrecta = pregunta.isRespuesta();
+        String enunciado = pregunta.getEnunciado();
+        
+        int respuestaUsuarioInt = JOptionPane.showConfirmDialog(
+                null, enunciado, "Pregunta de castigo por colision", JOptionPane.YES_NO_OPTION);
+        
+        boolean acierto = (respuestaUsuarioInt == respuestaCorrecta);
+        
+        if (acierto){
+            JOptionPane.showMessageDialog(guiJuego, "Respuesta Correcta! Tu ficha es liberada. +2 puntos.");
+        
+        } else {
+            JOptionPane.showMessageDialog(guiJuego, "Respuesta Incorrecta! Regreasas a Casa. -3 puntos");
+            
+        }
+        
+        areaJuego.aplicarResultadoPreguntaColision(acierto, turnoActual, indiceCelda);
+        
+        panelControl.setJLPuntosJugador1(areaJuego.getPuntosJugador1());
+        panelControl.setJLPuntosJugador2(areaJuego.getPuntosJugador2());
+        panelJuego.repaint();
+        
+    }
     
     
     
@@ -277,26 +316,31 @@ public class ControladorJuego implements ActionListener, MouseListener {
         int indiceCelda = areaJuego.getIndexFichaEnTablero(e.getX(), e.getY(), colorActivo);
         if (indiceCelda != -1) {
             System.out.println("Moviendo ficha de celda " + (indiceCelda+1) + " " + resultadoDado + " pasos.");
-            int nuevaCeldaIndice = areaJuego.moverFicha(indiceCelda, resultadoDado, colorActivo);
+            int resultadoMovimiento = areaJuego.moverFicha(indiceCelda, resultadoDado, colorActivo);
             panelJuego.repaint();
-            if (areaJuego.isCeldaNormal(nuevaCeldaIndice)){
-                System.out.println("Casilla normal, no hay pregunta.");
-                 
+            
+            if (resultadoMovimiento >= 700) {
+                int indiceColision = resultadoMovimiento - 700;
+                System.out.println("Colision detectada en la celda: " +indiceColision+ "!");
+                hacerPreguntaColision(indiceColision);
+                return;
+            } else if (!areaJuego.isCeldaNormal(resultadoMovimiento)){
+                
+                 System.out.println("Casilla especial, mostrando pregunta!");
+                 hacerPregunta();
+                
             } else {
-                System.out.println("Casilla especial, mostrando pregunta!");
-                hacerPregunta();
+              System.out.println("Casilla normal, no hay pregunta.");
+            }
+                finalizarTurno();
+                cambiarTurno();
+                return;
+          }
+        
+            System.out.println("Click en un area no valida. Intenta de nuevo.");
         }
             
            
-        finalizarTurno();
-        cambiarTurno();
-        return;
-        
-        
-        }
-        System.out.println("Click en un area no valida. Intenta de nuevo.");
-        
-    }
 
     @Override
     public void mousePressed(MouseEvent e) {

@@ -320,16 +320,41 @@ public class Tablero {
     
     }
     
+    public Celda[] getCeldas(){
+        return tablero;
+    }
+    
+    public Celda getCeldas(int indice) {
+        if (indice >= 0 && indice < tablero.length){
+            return tablero[indice];
+        }
+        return null;
+    }
+    
     public int moverFicha(int indiceActual, int pasos, String color){
     
         int nuevoIndice = (indiceActual + pasos) % 68;
         
         Ficha ficha = tablero[indiceActual].getFicha();
-        tablero[indiceActual].setFicha(null);
-        tablero[nuevoIndice].setFicha(ficha);
-        ficha.setPosicion(tablero[nuevoIndice].getPosicion());
-        return nuevoIndice;
-    
+        
+        if(tablero[nuevoIndice].getFicha() != null){
+            Ficha fichaExistente = tablero[nuevoIndice].getFicha();
+            
+            if (!fichaExistente.getColor().equals(color)) {
+                   if(isCeldaNormal(nuevoIndice)){
+                
+            tablero[indiceActual].setFicha(null);
+            tablero[nuevoIndice].setFicha(ficha);
+            ficha.setPosicion(tablero[nuevoIndice].getPosicion());
+            return 700 + nuevoIndice;
+               }
+            }
+        }
+        
+            tablero[indiceActual].setFicha(null);
+            tablero[nuevoIndice].setFicha(ficha);
+            ficha.setPosicion(tablero[nuevoIndice].getPosicion());
+            return nuevoIndice;
     }
     
     public boolean isCeldaNormal(int indice){
