@@ -114,12 +114,12 @@ public class PanelControl extends javax.swing.JPanel {
 
         jlPuntosJugador1.setFont(new java.awt.Font("Segoe UI Black", 0, 14)); // NOI18N
         jlPuntosJugador1.setForeground(new java.awt.Color(255, 255, 255));
-        jlPuntosJugador1.setText("Puntos: 5");
+        jlPuntosJugador1.setText("Puntos: 1");
         add(jlPuntosJugador1, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 330, -1, -1));
 
         jlPuntosJugador2.setFont(new java.awt.Font("Segoe UI Black", 0, 14)); // NOI18N
         jlPuntosJugador2.setForeground(new java.awt.Color(255, 255, 255));
-        jlPuntosJugador2.setText("Puntos: 5");
+        jlPuntosJugador2.setText("Puntos: 1");
         add(jlPuntosJugador2, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 520, -1, -1));
 
         jlFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/TableroFondo.png"))); // NOI18N

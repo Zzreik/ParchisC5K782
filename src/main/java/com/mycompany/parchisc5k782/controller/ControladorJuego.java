@@ -56,6 +56,8 @@ public class ControladorJuego implements ActionListener, MouseListener {
         guiJuego = new GUIJuego(this);
         guiGameOver = new GUIGameOver();
         guiWin = new GUIWin();
+        guiGameOver.setListener(this);
+        guiWin.setListener(this);
         panelJuego = guiJuego.getPanelJuego();
         areaJuego = new AreaJuego(colorJugador1,nombreJugador1,nombreJugador2);
         panelControl = guiJuego.getPanelControl();
@@ -113,7 +115,7 @@ public class ControladorJuego implements ActionListener, MouseListener {
         } else {
             panelControl.setJLPuntosJugador2(areaJuego.getPuntosJugador2());
         }
-        
+        verificarFinJuego();
         
         
         
@@ -151,17 +153,33 @@ public class ControladorJuego implements ActionListener, MouseListener {
     
     
     
-//    public int mostrarWin(int puntaje){
-//        
-//        guiJuego.setVisible(false);
-//        if(guiWin == null) {
-//        guiWin = new GUIWin();
-//        
-//        }
-//        guiWin.setEstadisticas(puntaje);
-//        guiWin.setVisible(true);
-//        
-//    }
+    public void mostrarWin(int puntajeFinal){
+        
+        guiJuego.setVisible(false);
+        if(guiWin == null) {
+        guiWin = new GUIWin();
+        
+        }
+        guiWin.setEstadisticas(String.valueOf(puntajeFinal));
+        guiWin.setVisible(true);
+        
+    }
+    
+    public void verificarFinJuego(){
+        int puntosJ1 = areaJuego.getPuntosJugador1();
+        int puntosJ2 = areaJuego.getPuntosJugador2();
+        
+        if (puntosJ1 <= 0){
+            mostrarGameOver(puntosJ1);
+            return;
+        }
+        
+        if (puntosJ2 <= 0){
+            mostrarWin(puntosJ1);
+            return;
+        
+        }
+    }
     
  
     public int getIndexFichaEnTablero(int x, int y, String color) {
@@ -198,6 +216,7 @@ public class ControladorJuego implements ActionListener, MouseListener {
         
         panelControl.setJLPuntosJugador1(areaJuego.getPuntosJugador1());
         panelControl.setJLPuntosJugador2(areaJuego.getPuntosJugador2());
+        verificarFinJuego();
         panelJuego.repaint();
         
     }
@@ -268,15 +287,24 @@ public class ControladorJuego implements ActionListener, MouseListener {
             
              case "MenuWin":
                 guiPrincipal.setVisible(true);
-                guiGameOver.setVisible(false);
+                guiWin.setVisible(false);
                 break;
                 
             case "Reiniciar":
-                
-                break;
-                
             case "ReiniciarWin":
                 
+                String colorJ1 = areaJuego.getColorJugador1();
+                String nombreJ1 = areaJuego.getNombreJugador1();
+                String nombreJ2 = areaJuego.getNombreJugador2();
+                
+                if (e.getActionCommand().equals("Reiniciar")){
+                    guiGameOver.setVisible(false);
+                    
+                } else {
+                    guiWin.setVisible(false);
+                }
+                
+                new ControladorJuego(guiPrincipal, colorJ1, nombreJ1, nombreJ2);
                 break;
 
         }

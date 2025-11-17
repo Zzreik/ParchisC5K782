@@ -23,6 +23,19 @@ public class GUIGameOver extends javax.swing.JFrame {
         jlPuntajeFinal.setText(String.valueOf(puntaje));
     }
     
+    public javax.swing.JButton getBtnGameOverReiniciar(){
+        return btnGameOverReiniciar;
+    }
+    
+    public javax.swing.JButton getBtnVolverMenu(){
+        return btnVolverMenu;
+    }
+    
+    public void setListener(java.awt.event.ActionListener listener){
+        btnGameOverReiniciar.addActionListener(listener);
+        btnVolverMenu.addActionListener(listener);
+    
+    }
     
 
     /**
@@ -46,13 +59,18 @@ public class GUIGameOver extends javax.swing.JFrame {
         btnGameOverReiniciar.setActionCommand("Reiniciar");
         btnGameOverReiniciar.setBorderPainted(false);
         btnGameOverReiniciar.setContentAreaFilled(false);
-        getContentPane().add(btnGameOverReiniciar, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 240, -1, -1));
+        btnGameOverReiniciar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGameOverReiniciarActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnGameOverReiniciar, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 510, -1, -1));
 
         btnVolverMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/botonInicio.png"))); // NOI18N
         btnVolverMenu.setActionCommand("Menu");
         btnVolverMenu.setBorderPainted(false);
         btnVolverMenu.setContentAreaFilled(false);
-        getContentPane().add(btnVolverMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 370, -1, -1));
+        getContentPane().add(btnVolverMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 500, -1, -1));
 
         jlPuntajeFinal.setFont(new java.awt.Font("Segoe UI Black", 0, 24)); // NOI18N
         jlPuntajeFinal.setText("0");
@@ -60,10 +78,14 @@ public class GUIGameOver extends javax.swing.JFrame {
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/panelGameOver.png"))); // NOI18N
         jLabel1.setText("0");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 700, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnGameOverReiniciarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGameOverReiniciarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnGameOverReiniciarActionPerformed
 
     /**
      * @param args the command line arguments

@@ -24,6 +24,8 @@ public class AreaJuego {
 
     public AreaJuego(String colorJugador1, String nombreJugador1, String nombreJugador2) {
         tablero = new Tablero();
+        jugador1 = new Jugador(nombreJugador1, colorJugador1);
+        jugador2 = new Jugador(nombreJugador2, "Oponente");
         crearJugadores(colorJugador1, nombreJugador1, nombreJugador2);
         tablero.crearCasas(colorJugador1);
         bancoPregunta = new BancoPregunta();
@@ -191,29 +193,21 @@ public class AreaJuego {
         return;
     }
     
-    // NOTA CLAVE: La ficha atacante YA ESTÁ en tablero[indiceCeldaCapturada]
-    // No la tocamos, ya que es el resultado exitoso del movimiento.
-
-    // Buscamos un espacio libre en la casa del jugador castigado.
+  
     for (int i = 0; i < 4; i++) {
         if (casa.getFicha(i) == null) {
             
-            // Creamos una nueva ficha para simular el regreso a casa.
-            // (La ficha antigua se perdió en el reemplazo de celda)
-            // Tienes que usar el color de la ficha que se está devolviendo a casa.
+        
             Ficha fichaRegresada = new Ficha(new Posicion(0,0), null, colorJugador);
             
-            // Colocamos la ficha en la posición libre de la casa
+           
             casa.setFicha(i, fichaRegresada);
             
-            // La posición (0,0) es un parche, pero las casas tienen sus propias posiciones internas.
-            // Para que se dibuje correctamente, el objeto Casa debe ser capaz de asignar 
-            // las coordenadas correctas a la nueva ficha (455, 462, etc.).
+       
 
             System.out.println("Ficha del jugador " + colorJugador + " regresada a casa, índice: " + i);
             
-            // Es necesario forzar el redibujado de la casa para que la ficha aparezca en la GUI.
-            // Esto lo maneja PanelJuego.repaint() en el controlador.
+        
             
             return;
         }

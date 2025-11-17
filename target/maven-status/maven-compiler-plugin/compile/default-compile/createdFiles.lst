@@ -13,6 +13,7 @@ com\mycompany\parchisc5k782\model\CeldaEspecialColor.class
 com\mycompany\parchisc5k782\model\Dado.class
 com\mycompany\parchisc5k782\model\AreaJuego.class
 com\mycompany\parchisc5k782\view\GUIJugador$1.class
+com\mycompany\parchisc5k782\view\GUIGameOver$1.class
 com\mycompany\parchisc5k782\view\GUIJuego.class
 com\mycompany\parchisc5k782\model\Pregunta.class
 com\mycompany\parchisc5k782\model\Celda.class

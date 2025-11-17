@@ -23,6 +23,21 @@ public class GUIWin extends javax.swing.JFrame {
     public void setEstadisticas(String mensaje){
         jlEstadisticasFinal.setText(mensaje);
         }
+    
+    public javax.swing.JButton getBtnWinReiniciar(){
+        return btnWinReiniciar;
+    }
+    
+    public javax.swing.JButton getBtnVolverMenu(){
+        return btnVolverMenu;
+    }
+    
+    public void setListener(java.awt.event.ActionListener listener){
+        btnWinReiniciar.addActionListener(listener);
+        btnVolverMenu.addActionListener(listener);
+    
+    }
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -45,20 +60,20 @@ public class GUIWin extends javax.swing.JFrame {
         btnWinReiniciar.setActionCommand("ReiniciarWin");
         btnWinReiniciar.setBorderPainted(false);
         btnWinReiniciar.setContentAreaFilled(false);
-        getContentPane().add(btnWinReiniciar, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 240, -1, -1));
+        getContentPane().add(btnWinReiniciar, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 500, -1, -1));
 
         btnVolverMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/botonInicio.png"))); // NOI18N
         btnVolverMenu.setActionCommand("MenuWin");
         btnVolverMenu.setBorderPainted(false);
         btnVolverMenu.setContentAreaFilled(false);
-        getContentPane().add(btnVolverMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 370, -1, -1));
+        getContentPane().add(btnVolverMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 500, -1, -1));
 
         jlEstadisticasFinal.setFont(new java.awt.Font("Segoe UI Black", 0, 24)); // NOI18N
         jlEstadisticasFinal.setText("0");
         getContentPane().add(jlEstadisticasFinal, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 230, -1, -1));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/panelVictoria.png"))); // NOI18N
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 710, 590));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 700, 590));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
