@@ -26,6 +26,7 @@ public class PrincipalController implements ActionListener {
     private ControladorJuego controladorJuego;
     private GUIJugador guiJugador;
     private GUIJuego guiJuego;
+    private AudioController audio;
 
     public PrincipalController() {
         guiPrincipal = new GUIPrincipal(this);
@@ -34,6 +35,7 @@ public class PrincipalController implements ActionListener {
         guiInstrucciones = new GUIInstrucciones(this);
         guiHistoriaJuego = new GUIHistoriaJuego(this);
         guiJugador = new GUIJugador(this);
+        audio = new AudioController();
         
     }
 
@@ -86,6 +88,14 @@ public class PrincipalController implements ActionListener {
             case "atrasHistoriaJuego":
                 guiHistoriaJuego.setVisible(false);
                 guiPrincipal.setVisible(true);
+                break;
+                
+            case "Sonido":
+                if(audio.estaReproduciendo()){
+                    audio.detener();
+                } else {
+                    audio.iniciarMusica("/audios/musica.wav");
+                }
                 break;
 
             case "Salir":
