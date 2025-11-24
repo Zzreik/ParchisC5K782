@@ -10,6 +10,7 @@ com\mycompany\parchisc5k782\view\PanelControl.class
 com\mycompany\parchisc5k782\view\GUIInstrucciones.class
 com\mycompany\parchisc5k782\controller\AudioController.class
 com\mycompany\parchisc5k782\ParchisC5K782.class
+com\mycompany\parchisc5k782\model\Cronometro.class
 com\mycompany\parchisc5k782\model\CeldaEspecialColor.class
 com\mycompany\parchisc5k782\model\Dado.class
 com\mycompany\parchisc5k782\model\AreaJuego.class

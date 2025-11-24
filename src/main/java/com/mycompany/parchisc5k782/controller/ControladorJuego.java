@@ -5,6 +5,7 @@
 package com.mycompany.parchisc5k782.controller;
 
 import com.mycompany.parchisc5k782.model.AreaJuego;
+import com.mycompany.parchisc5k782.model.Cronometro;
 import com.mycompany.parchisc5k782.model.Dado;
 import com.mycompany.parchisc5k782.model.Ficha;
 import com.mycompany.parchisc5k782.model.Posicion;
@@ -24,6 +25,7 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
+import javax.swing.Timer;
 
 /**
  *
@@ -44,6 +46,10 @@ public class ControladorJuego implements ActionListener, MouseListener {
     private Dado dado;
     private GUIGameOver guiGameOver;
     private GUIWin guiWin;
+    private Timer timer;
+    private Cronometro cronometro;
+
+    
     
     private int turnoActual;
     private int valorDado;
@@ -64,6 +70,9 @@ public class ControladorJuego implements ActionListener, MouseListener {
         panelControl.setJlNombreJugador1(nombreJugador1);
         panelControl.setJlNombreJugador2(nombreJugador2);
         dado = new Dado();
+        timer = new Timer(30, this);
+        cronometro = new Cronometro();
+        update();
         
         this.turnoActual = 1;
         this.valorDado = 0;
@@ -221,7 +230,10 @@ public class ControladorJuego implements ActionListener, MouseListener {
         
     }
     
-    
+    public void update() {
+
+        panelControl.setJlTime(cronometro.getFormattedTime());
+    }
     
     @Override
     public void actionPerformed(ActionEvent e) {
@@ -234,6 +246,7 @@ public class ControladorJuego implements ActionListener, MouseListener {
                   ? areaJuego.getColorJugador1()
                   : areaJuego.getColorJugador2();
         
+        if (e.getActionCommand() != null) {
         switch (e.getActionCommand()) {
 
             case "Dado":
@@ -307,9 +320,36 @@ public class ControladorJuego implements ActionListener, MouseListener {
                 new ControladorJuego(guiPrincipal, colorJ1, nombreJ1, nombreJ2);
                 break;
 
+            case "Iniciar":
+                     
+                cronometro.start();
+                timer.start();
+                break;
+                   
+            case "Detener":
+                cronometro.reset();
+                timer.restart();
+                break;
+                
+            case "Pausar":
+                cronometro.stop();
+                timer.stop();
+                break;    
+            }
         }
+       if (timer.isRunning()) {
+            update();
+          
+             if (cronometro.getElapsedTime()>= 20000) {
+                        timer.stop();
+                        cronometro.stop();
+                    }
+        } 
 
     }
+    
+    
+    
 
     @Override
     public void mouseClicked(MouseEvent e) {
