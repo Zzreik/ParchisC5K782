@@ -19,6 +19,7 @@ public class Ficha {
     private String color;
     private Rectangle hitbox;
     private boolean inTablero;
+    private boolean inPasillo;
 
     public Ficha(Posicion posicion, ImageIcon imagen, String color) {
         this.posicion = posicion;
@@ -26,6 +27,7 @@ public class Ficha {
         this.color = color;
         hitbox = new Rectangle(posicion.getX(), posicion.getY(),30,30);
         inTablero=false;
+        inPasillo=false;
     }
     
     public boolean isContains(int x, int y){
@@ -34,6 +36,15 @@ public class Ficha {
     
     }
 
+    public boolean isInPasillo(){
+        return inPasillo;
+    
+    }
+    
+    public void setInPasillo(boolean inPasillo){
+        this.inPasillo = inPasillo;
+    }
+    
     public Posicion getPosicion() {
         return posicion;
     }

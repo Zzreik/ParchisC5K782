@@ -354,7 +354,7 @@ public class ControladorJuego implements ActionListener, MouseListener {
     @Override
     public void mouseClicked(MouseEvent e) {
         
-        
+        System.out.println("X " + e.getX() + " Y " + e.getY());
         String colorActivo = (turnoActual == 1)
                   ? areaJuego.getColorJugador1()
                   : areaJuego.getColorJugador2();
