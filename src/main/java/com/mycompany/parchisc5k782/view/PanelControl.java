@@ -98,6 +98,8 @@ public class PanelControl extends javax.swing.JPanel {
     private void initComponents() {
 
         jlTime = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
         btnIniciar = new javax.swing.JButton();
         btnPausar = new javax.swing.JButton();
         btnDetener = new javax.swing.JButton();
@@ -116,6 +118,12 @@ public class PanelControl extends javax.swing.JPanel {
         jlTime.setOpaque(true);
         add(jlTime, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 0, 130, 40));
 
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/jugador2.png"))); // NOI18N
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 390, -1, -1));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/jugador1.png"))); // NOI18N
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 150, -1, -1));
+
         btnIniciar.setText("Iniciar");
         add(btnIniciar, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 0, -1, -1));
 
@@ -129,31 +137,31 @@ public class PanelControl extends javax.swing.JPanel {
         btnDado.setActionCommand("Dado");
         btnDado.setBorderPainted(false);
         btnDado.setContentAreaFilled(false);
-        add(btnDado, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 90, -1, -1));
+        add(btnDado, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 60, -1, -1));
 
         btnAtras.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/botonAtras.png"))); // NOI18N
         btnAtras.setActionCommand("AtrasPanelControl");
         btnAtras.setBorderPainted(false);
         btnAtras.setContentAreaFilled(false);
-        add(btnAtras, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 620, -1, -1));
+        add(btnAtras, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 650, -1, -1));
 
         jlNombreJugador1.setFont(new java.awt.Font("Segoe UI Black", 0, 24)); // NOI18N
         jlNombreJugador1.setText("Jugador1");
-        add(jlNombreJugador1, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 280, -1, -1));
+        add(jlNombreJugador1, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 300, -1, -1));
 
         jlNombreJugador2.setFont(new java.awt.Font("Segoe UI Black", 0, 24)); // NOI18N
         jlNombreJugador2.setText("Jugador2");
-        add(jlNombreJugador2, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 460, -1, -1));
+        add(jlNombreJugador2, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 540, -1, -1));
 
         jlPuntosJugador1.setFont(new java.awt.Font("Segoe UI Black", 0, 14)); // NOI18N
         jlPuntosJugador1.setForeground(new java.awt.Color(255, 255, 255));
         jlPuntosJugador1.setText("Puntos: 5");
-        add(jlPuntosJugador1, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 330, -1, -1));
+        add(jlPuntosJugador1, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 340, -1, -1));
 
         jlPuntosJugador2.setFont(new java.awt.Font("Segoe UI Black", 0, 14)); // NOI18N
         jlPuntosJugador2.setForeground(new java.awt.Color(255, 255, 255));
         jlPuntosJugador2.setText("Puntos: 5");
-        add(jlPuntosJugador2, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 520, -1, -1));
+        add(jlPuntosJugador2, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 580, -1, -1));
 
         jlFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/TableroFondo.png"))); // NOI18N
         add(jlFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
@@ -166,6 +174,8 @@ public class PanelControl extends javax.swing.JPanel {
     private javax.swing.JButton btnDetener;
     private javax.swing.JButton btnIniciar;
     private javax.swing.JButton btnPausar;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jlFondo;
     private javax.swing.JLabel jlNombreJugador1;
     private javax.swing.JLabel jlNombreJugador2;

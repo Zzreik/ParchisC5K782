@@ -340,7 +340,7 @@ public class ControladorJuego implements ActionListener, MouseListener {
        if (timer.isRunning()) {
             update();
           
-             if (cronometro.getElapsedTime()>= 20000) {
+             if (cronometro.getElapsedTime()>= 10000000) {
                         timer.stop();
                         cronometro.stop();
                     }
