@@ -50,7 +50,8 @@ public class GUICreditos extends javax.swing.JFrame {
         btnAtrasCreditos.setContentAreaFilled(false);
         getContentPane().add(btnAtrasCreditos, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 620, -1, -1));
 
-        jLabel2.setText("Disenado por Yuliana Masis");
+        jLabel2.setFont(new java.awt.Font("Segoe UI Black", 0, 24)); // NOI18N
+        jLabel2.setText("Diseñado por: Yuliana Masis");
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 290, -1, -1));
 
         jLabel1.setFont(new java.awt.Font("Arial Black", 0, 24)); // NOI18N

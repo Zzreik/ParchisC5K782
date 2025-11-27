@@ -36,16 +36,21 @@ public class GUIInstrucciones extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jlInstruccionesTitulo = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTextArea1 = new javax.swing.JTextArea();
         btnAtrasInstrucciones = new javax.swing.JButton();
         jlInstruccionesFondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jlInstruccionesTitulo.setFont(new java.awt.Font("Segoe UI Semibold", 0, 24)); // NOI18N
-        jlInstruccionesTitulo.setText("Instrucciones");
-        getContentPane().add(jlInstruccionesTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 210, -1, -1));
+        jTextArea1.setColumns(20);
+        jTextArea1.setFont(new java.awt.Font("Segoe UI Black", 0, 14)); // NOI18N
+        jTextArea1.setRows(5);
+        jTextArea1.setText("-El objetivo del juego es ganar ya sea si el equipo enemigo se queda sin puntos o si\nllegas a la meta primero.\n\n-Si sacas 5 puedes elegir entre mover o sacar una ficha.\n\n-Cada celda especial genera una pregunta que te puede sumar o restar 1 punto.\n\n-Si alguna ficha cae sobre otra enemiga esto generara una pregunta que al fallarla\nresta 3 puntos y desaparece la ficha atacada, pero al acertarla se ganan 2 puntos \npara el atacado.\n\n-Si cualquiera de los 2 equipos se queda sin puntos perdera automaticamente.\n\n-Si cualquiera de los 2 equipos logra dar la vuelta al mapa y llegar a la meta este\nganara automaticamente.\n\n-Se puede gestionar el tiempo con ayuda del cronometro incorporado.\n\n-En caso de no poder realizar ninguna accion se pasara el turno automaticamente.");
+        jScrollPane1.setViewportView(jTextArea1);
+
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 180, 600, 410));
 
         btnAtrasInstrucciones.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/botonAtras.png"))); // NOI18N
         btnAtrasInstrucciones.setActionCommand("atrasInstrucciones");
@@ -66,7 +71,8 @@ public class GUIInstrucciones extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAtrasInstrucciones;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextArea jTextArea1;
     private javax.swing.JLabel jlInstruccionesFondo;
-    private javax.swing.JLabel jlInstruccionesTitulo;
     // End of variables declaration//GEN-END:variables
 }

@@ -36,16 +36,31 @@ public class GUIHistoriaJuego extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTextArea2 = new javax.swing.JTextArea();
         jlHistoriaJuegoTitulo = new javax.swing.JLabel();
         btnHistoriaJuego = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
+        jlHistoriaJuegoTitulo1 = new javax.swing.JLabel();
+        jlHistoriaJuegoTitulo2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jTextArea2.setColumns(20);
+        jTextArea2.setFont(new java.awt.Font("Segoe UI Black", 0, 24)); // NOI18N
+        jTextArea2.setRows(5);
+        jTextArea2.setText("2 equipos de polos opuestos compiten \npor ver cual de los 2 se queda primero \nsin puntos o cual de los 2 llega primero \na la meta para de  esta forma ganar \nel juego.");
+        jTextArea2.setOpaque(false);
+        jScrollPane2.setViewportView(jTextArea2);
+
+        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 250, 490, 270));
+
         jlHistoriaJuegoTitulo.setFont(new java.awt.Font("Segoe UI Black", 0, 18)); // NOI18N
-        jlHistoriaJuegoTitulo.setText("Historia de Juego");
-        getContentPane().add(jlHistoriaJuegoTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 210, -1, -1));
+        jlHistoriaJuegoTitulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jlHistoriaJuegoTitulo.setToolTipText("");
+        jlHistoriaJuegoTitulo.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        getContentPane().add(jlHistoriaJuegoTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 190, -1, 80));
 
         btnHistoriaJuego.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/botonAtras.png"))); // NOI18N
         btnHistoriaJuego.setToolTipText("");
@@ -62,6 +77,14 @@ public class GUIHistoriaJuego extends javax.swing.JFrame {
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/tableroHistoria.png"))); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 900, -1));
 
+        jlHistoriaJuegoTitulo1.setFont(new java.awt.Font("Segoe UI Black", 0, 18)); // NOI18N
+        jlHistoriaJuegoTitulo1.setText("2 equipos de polos opuestos compiten por ver cual de los 2 se queda");
+        getContentPane().add(jlHistoriaJuegoTitulo1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 210, -1, 20));
+
+        jlHistoriaJuegoTitulo2.setFont(new java.awt.Font("Segoe UI Black", 0, 18)); // NOI18N
+        jlHistoriaJuegoTitulo2.setText("2 equipos de polos opuestos compiten por ver cual de los 2 se queda");
+        getContentPane().add(jlHistoriaJuegoTitulo2, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 210, -1, 20));
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
@@ -77,6 +100,10 @@ public class GUIHistoriaJuego extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnHistoriaJuego;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JTextArea jTextArea2;
     private javax.swing.JLabel jlHistoriaJuegoTitulo;
+    private javax.swing.JLabel jlHistoriaJuegoTitulo1;
+    private javax.swing.JLabel jlHistoriaJuegoTitulo2;
     // End of variables declaration//GEN-END:variables
 }
